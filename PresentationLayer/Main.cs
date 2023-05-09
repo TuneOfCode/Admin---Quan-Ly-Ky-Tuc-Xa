@@ -1,4 +1,5 @@
 ﻿using PresentationLayer.Auth;
+using PresentationLayer.Student;
 using System;
 using System.Windows.Forms;
 
@@ -27,6 +28,14 @@ namespace PresentationLayer {
             if (resultMessage == DialogResult.Yes) {
                 Application.Exit();
             }
+        }
+        /// <summary>
+        /// Mở nội dung chính của sinh viên
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ManageStudentTSMI_Click(object sender, EventArgs e) {
+            new MainStudentForm().Show();
         }
     }
 }
