@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DataAccessLayer.Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BoardingBill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_founded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="student_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Student" Relationship="Self.FK_BoardingBill_Student" FromRole="BoardingBill" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="ElectricityWaterBill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_founded" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="old_power_indicator" Type="Int32" Nullable="false" />
+    <Property Name="new_power_indicator" Type="Int32" Nullable="false" />
+    <Property Name="amount_electricity_consumed" Type="Double" />
+    <Property Name="old_water_index" Type="Int32" />
+    <Property Name="new_water_index" Type="Int32" />
+    <Property Name="amount_water_consumed" Type="Int32" />
+    <Property Name="electricity_money" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="water_money" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="environmental_charges" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="into_money" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="payment_date" Type="DateTime" Precision="3" />
+    <Property Name="room_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Room" Relationship="Self.FK_ElectricityWaterBill_Room" FromRole="ElectricityWaterBill" ToRole="Room" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="area" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="range" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ElectricityWaterBills" Relationship="Self.FK_ElectricityWaterBill_Room" FromRole="Room" ToRole="ElectricityWaterBill" />
+    <NavigationProperty Name="Students" Relationship="Self.FK_Student_Room" FromRole="Room" ToRole="Student" />
+  </EntityType>
+  <EntityType Name="Student">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="gender" Type="Boolean" Nullable="false" />
+    <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="citizen_identification" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_issue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="place_issue" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="school" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="course" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="industry" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="room_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contract_signing_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="BoardingBills" Relationship="Self.FK_BoardingBill_Student" FromRole="Student" ToRole="BoardingBill" />
+    <NavigationProperty Name="Room" Relationship="Self.FK_Student_Room" FromRole="Student" ToRole="Room" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_BoardingBill_Student">
+    <End Role="Student" Type="Self.Student" Multiplicity="0..1" />
+    <End Role="BoardingBill" Type="Self.BoardingBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Student">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="BoardingBill">
+        <PropertyRef Name="student_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ElectricityWaterBill_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
+    <End Role="ElectricityWaterBill" Type="Self.ElectricityWaterBill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ElectricityWaterBill">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Student_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="Student" Type="Self.Student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Student">
+        <PropertyRef Name="room_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ManageDormitoryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BoardingBills" EntityType="Self.BoardingBill" />
+    <EntitySet Name="ElectricityWaterBills" EntityType="Self.ElectricityWaterBill" />
+    <EntitySet Name="Rooms" EntityType="Self.Room" />
+    <EntitySet Name="Students" EntityType="Self.Student" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_BoardingBill_Student" Association="Self.FK_BoardingBill_Student">
+      <End Role="Student" EntitySet="Students" />
+      <End Role="BoardingBill" EntitySet="BoardingBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ElectricityWaterBill_Room" Association="Self.FK_ElectricityWaterBill_Room">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="ElectricityWaterBill" EntitySet="ElectricityWaterBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Student_Room" Association="Self.FK_Student_Room">
+      <End Role="Room" EntitySet="Rooms" />
+      <End Role="Student" EntitySet="Students" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
