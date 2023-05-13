@@ -17,7 +17,7 @@ namespace PresentationLayer {
             new LoginForm().Show();
         }
         /// <summary>
-        /// Sự kiện thoát chương trình
+        /// Sự kiện thoát chương trình nếu người dùng bấm nút "Thoát"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -36,6 +36,23 @@ namespace PresentationLayer {
         /// <param name="e"></param>
         private void ManageStudentTSMI_Click(object sender, EventArgs e) {
             new MainStudentForm().Show();
+        }
+        /// <summary>
+        /// Sự kiện thoát chương trình nếu người dùng bấm nút X
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Main_FormClosing(object sender, FormClosingEventArgs e) {
+            if (e.CloseReason == CloseReason.UserClosing) {
+                DialogResult resultMessage = MessageBox.Show("Bạn có chắc chắn thoát phần mềm?",
+                           "Thông báo",
+                           MessageBoxButtons.YesNo);
+                if (resultMessage == DialogResult.Yes) {
+                    Application.Exit();
+                } else {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

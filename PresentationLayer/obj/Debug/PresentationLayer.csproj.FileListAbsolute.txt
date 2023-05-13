@@ -15,3 +15,4 @@ E:\learn\MangeDormitory\PresentationLayer\obj\Debug\PresentationLayer.exe
 E:\learn\MangeDormitory\PresentationLayer\obj\Debug\PresentationLayer.pdb
 E:\learn\MangeDormitory\PresentationLayer\bin\Debug\PresentationLayer.pdb
 E:\learn\MangeDormitory\PresentationLayer\obj\Debug\PresentationLayer.Student.MainStudentForm.resources
+E:\learn\MangeDormitory\PresentationLayer\obj\Debug\PresentationLayer.Student.AddStudentForm.resources

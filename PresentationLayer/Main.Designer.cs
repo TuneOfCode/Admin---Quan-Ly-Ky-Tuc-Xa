@@ -105,14 +105,14 @@
             // ManageStudentTSMI
             // 
             this.ManageStudentTSMI.Name = "ManageStudentTSMI";
-            this.ManageStudentTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageStudentTSMI.Size = new System.Drawing.Size(122, 22);
             this.ManageStudentTSMI.Text = "Sinh viên";
             this.ManageStudentTSMI.Click += new System.EventHandler(this.ManageStudentTSMI_Click);
             // 
             // ManageRoomTSMI
             // 
             this.ManageRoomTSMI.Name = "ManageRoomTSMI";
-            this.ManageRoomTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageRoomTSMI.Size = new System.Drawing.Size(122, 22);
             this.ManageRoomTSMI.Text = "Phòng ở";
             // 
             // BillTSMI
@@ -121,19 +121,19 @@
             this.ManageBoardingBillTSMI,
             this.ManageElecWaterBillTSMI});
             this.BillTSMI.Name = "BillTSMI";
-            this.BillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.BillTSMI.Size = new System.Drawing.Size(122, 22);
             this.BillTSMI.Text = "Hoá đơn";
             // 
             // ManageBoardingBillTSMI
             // 
             this.ManageBoardingBillTSMI.Name = "ManageBoardingBillTSMI";
-            this.ManageBoardingBillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageBoardingBillTSMI.Size = new System.Drawing.Size(128, 22);
             this.ManageBoardingBillTSMI.Text = "Nội trú";
             // 
             // ManageElecWaterBillTSMI
             // 
             this.ManageElecWaterBillTSMI.Name = "ManageElecWaterBillTSMI";
-            this.ManageElecWaterBillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageElecWaterBillTSMI.Size = new System.Drawing.Size(128, 22);
             this.ManageElecWaterBillTSMI.Text = "Điện nước";
             // 
             // StatisticTSM
@@ -149,13 +149,13 @@
             // StatisticStudentTSMI
             // 
             this.StatisticStudentTSMI.Name = "StatisticStudentTSMI";
-            this.StatisticStudentTSMI.Size = new System.Drawing.Size(180, 22);
+            this.StatisticStudentTSMI.Size = new System.Drawing.Size(122, 22);
             this.StatisticStudentTSMI.Text = "Sinh viên";
             // 
             // StatisticRoomTSMI
             // 
             this.StatisticRoomTSMI.Name = "StatisticRoomTSMI";
-            this.StatisticRoomTSMI.Size = new System.Drawing.Size(180, 22);
+            this.StatisticRoomTSMI.Size = new System.Drawing.Size(122, 22);
             this.StatisticRoomTSMI.Text = "Phòng ở";
             // 
             // hoáĐơnToolStripMenuItem
@@ -164,19 +164,19 @@
             this.StatisticBoardingBillTSMI,
             this.StatisticElecWaterTSMI});
             this.hoáĐơnToolStripMenuItem.Name = "hoáĐơnToolStripMenuItem";
-            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.hoáĐơnToolStripMenuItem.Text = "Hoá đơn";
             // 
             // StatisticBoardingBillTSMI
             // 
             this.StatisticBoardingBillTSMI.Name = "StatisticBoardingBillTSMI";
-            this.StatisticBoardingBillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.StatisticBoardingBillTSMI.Size = new System.Drawing.Size(128, 22);
             this.StatisticBoardingBillTSMI.Text = "Nội trú";
             // 
             // StatisticElecWaterTSMI
             // 
             this.StatisticElecWaterTSMI.Name = "StatisticElecWaterTSMI";
-            this.StatisticElecWaterTSMI.Size = new System.Drawing.Size(180, 22);
+            this.StatisticElecWaterTSMI.Size = new System.Drawing.Size(128, 22);
             this.StatisticElecWaterTSMI.Text = "Điện nước";
             // 
             // AboutTSMI
@@ -196,6 +196,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý ký túc xá [Admin]";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
             this.MainMS.ResumeLayout(false);
             this.MainMS.PerformLayout();
             this.ResumeLayout(false);
