@@ -58,6 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\RoomServices.cs" />
+    <Compile Include="DataAccessLayer\SQLServer\BoardingBillDAL.cs" />
+    <Compile Include="DataAccessLayer\SQLServer\ElectricityWaterBillDAL.cs" />
+    <Compile Include="DataAccessLayer\SQLServer\RoomDAL.cs" />
     <Compile Include="Helpers\ComboBoxItem.cs" />
     <Compile Include="Helpers\CustomException.cs" />
     <Compile Include="Models\BoardingBill.cs">

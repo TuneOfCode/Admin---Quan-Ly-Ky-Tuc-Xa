@@ -7,7 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace ManageDormitory.DataAccessLayer {
-    public class BaseDAL<T> : IBaseDAL<T> where T : class {
+    public partial class BaseDAL<T> : IBaseDAL<T> where T : class {
         /// <summary>
         /// Đối tượng của lớp định danh T
         /// </summary>
@@ -23,7 +23,7 @@ namespace ManageDormitory.DataAccessLayer {
         /// <summary>
         /// Cấu hình chuỗi kết nối
         /// </summary>
-        public BaseDAL(T t, DbSet<T> entity, ManageDormitoryEntities manageDormitoryEntities)
+        public BaseDAL(T t, ManageDormitoryEntities manageDormitoryEntities, DbSet<T> entity)
             : base() {
             _instance = t;
             _manageDormitoryEntities = manageDormitoryEntities;
@@ -198,6 +198,22 @@ namespace ManageDormitory.DataAccessLayer {
                );
                 return -1;
             }
+        }
+        /// <summary>
+        /// Thực thi câu lệnh SQL dạng truy vấn
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        T IBaseDAL<T>.QuerySQL(string sql) {
+            return _baseEntity.SqlQuery(sql).FirstOrDefault();
+        }
+        /// <summary>
+        /// Thực thi câu lệnh SQL dạng tác động
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        int IBaseDAL<T>.ExecuteSQL(string sql) {
+            return _baseEntity.SqlQuery(sql).Count();
         }
     }
 }

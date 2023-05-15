@@ -14,6 +14,10 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// </summary>
         private Models.Student student;
         /// <summary>
+        /// Nếu có cờ này thì sẽ là hiển thị chi tiết
+        /// </summary>
+        private bool isReadonly;
+        /// <summary>
         /// Kiểm tra đã lưu hay chưa
         /// </summary>
         private bool isSaved = false;
@@ -26,10 +30,20 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// </summary>
         private static string EXTENSION_FILTER =
                "jpg files(*.jpg)|*.jpg| png files(*.png)|*.png|jpeg files(*.jpeg)|*.jpeg";
-        public AddStudentForm(DataGridView studentDGV, Models.Student student) {
+        public AddStudentForm(DataGridView studentDGV, Models.Student student, bool isReadonly = false) {
             InitializeComponent();
             this.studentDGV = studentDGV;
             this.student = student;
+            this.isReadonly = isReadonly;
+
+            // Đôi tên form
+            if (student != null && !isReadonly) {
+                Text = "Biểu mẫu cập nhật thông tin của sinh viên";
+            } else if (student != null && isReadonly) {
+                Text = "Biểu mẫu xem thông tin chi tiết sinh viên";
+            } else {
+                Text = "Biểu mẫu thêm sinh viên";
+            }
         }
         /// <summary>
         /// Chức năng tải ảnh đại diện của sinh viên
@@ -37,6 +51,9 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void pbStudentAvatar_Click(object sender, System.EventArgs e) {
+            if (isReadonly) {
+                return;
+            }
             try {
                 string imageLocation = "";
                 OpenFileDialog dialog = new OpenFileDialog();
@@ -55,7 +72,7 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddStudentForm_FormClosing(object sender, FormClosingEventArgs e) {
-            if (isSaved) {
+            if (isSaved || isReadonly) {
                 return;
             }
             if (e.CloseReason == CloseReason.UserClosing) {
@@ -242,11 +259,9 @@ namespace ManageDormitory.PresentationLayer.Student {
             if (!student.gender) {
                 rbStudentGenderFeman.Checked = true;
             }
-            DateTime? studentBirthdate = Codes.DMYStingToDateTime(student.birthdate.ToString());
-            DateTime? studentDateIssue = Codes.DMYStingToDateTime(student.date_issue.ToString());
-            dtpStudentBirthdate.Text = studentBirthdate.ToString();
+            dtpStudentBirthdate.Text = student.birthdate.ToString();
             txtStudentCitizenIdentification.Text = student.citizen_identification;
-            dtpStudentDateIssue.Text = studentDateIssue.ToString();
+            dtpStudentDateIssue.Text = student.date_issue.ToString();
             txtStudentPlaceIssue.Text = student.place_issue;
             txtStudentAddress.Text = student.address;
             txtStudentPhone.Text = student.phone;
@@ -255,6 +270,29 @@ namespace ManageDormitory.PresentationLayer.Student {
             txtStudentIndustry.Text = student.industry;
             txtStudentCourse.Text = student.course;
             cbbRoomID.Text = student.room_id;
+
+            // xử lý khi có cờ đọc chi tiết
+            pbStudentAvatar.Enabled
+            = txtStudentID.Enabled
+            = txtStudentName.Enabled
+            = rbStudentGenderMan.Enabled
+            = rbStudentGenderFeman.Enabled
+            = dtpStudentBirthdate.Enabled
+            = dtpStudentDateIssue.Enabled
+            = txtStudentCitizenIdentification.Enabled
+            = txtStudentPlaceIssue.Enabled
+            = txtStudentAddress.Enabled
+            = txtStudentEmail.Enabled
+            = txtStudentPhone.Enabled
+            = txtStudentSchool.Enabled
+            = txtStudentIndustry.Enabled
+            = txtStudentCourse.Enabled
+            = cbbRoomArea.Enabled
+            = cbbRoomRange.Enabled
+            = cbbRoomID.Enabled
+            = btnCancel.Visible
+            = btnSave.Visible
+            = !isReadonly;
         }
     }
 }

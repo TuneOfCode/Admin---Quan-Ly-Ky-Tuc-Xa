@@ -44,5 +44,17 @@ namespace ManageDormitory.DataAccessLayer {
         /// <param name="data"></param>
         /// <returns></returns>
         int Delete(T data);
+        /// <summary>
+        /// Thực thi câu lệnh SQL dạng truy vấn
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        T QuerySQL(string sql);
+        /// <summary>
+        /// Thực thi câu lệnh SQL dạng tác động
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        int ExecuteSQL(string sql);
     }
 }

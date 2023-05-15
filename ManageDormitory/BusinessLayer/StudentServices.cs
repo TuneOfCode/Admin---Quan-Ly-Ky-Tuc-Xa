@@ -24,7 +24,7 @@ namespace ManageDormitory.BusinessLayer {
         /// Load lại dữ liệu bảng sinh viên
         /// </summary>
         /// <param name="StudentDGV"></param>
-        public static void LoadDatatable(DataGridView StudentDGV, IList<Models.Student> students) {
+        public static void LoadDatatable(DataGridView StudentDGV, IList<Student> students) {
             if (students.Count == 0) {
                 return;
             }
@@ -74,7 +74,7 @@ namespace ManageDormitory.BusinessLayer {
         /// <summary>
         /// Tạo mới một sinh viên
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="data"></param>
         /// <returns></returns>
         public static int CreateNewStudent(string[] data) {
             student = new Student();
@@ -98,7 +98,7 @@ namespace ManageDormitory.BusinessLayer {
         /// <summary>
         /// Cập nhật thông tin của một sinh viên
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="data"></param>
         /// <returns></returns>
         public static int UpdateStudent(string[] data) {
             student = new Student();
@@ -122,7 +122,7 @@ namespace ManageDormitory.BusinessLayer {
         /// <summary>
         /// Xoá một hoặc nhiều sinh viên
         /// </summary>
-        /// <param name="s"></param>
+        /// <param name="studentIDs"></param>
         /// <returns></returns>
         public static int DeleteStudent(IList<string> studentIDs) {
             int isDeleted = 1;

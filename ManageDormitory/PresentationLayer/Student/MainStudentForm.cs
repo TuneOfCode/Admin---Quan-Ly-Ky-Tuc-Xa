@@ -60,6 +60,7 @@ namespace ManageDormitory.PresentationLayer.Student {
                 hasNull ? null : txtSearch.Text
             );
             StudentServices.LoadDatatable(StudentDGV, students);
+            btnUpdate.Enabled = btnDelete.Enabled = false;
         }
         /// <summary>
         /// Xử lý sự kiện load form
@@ -125,15 +126,12 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void getDetail_Click(object sender, EventArgs e) {
-            // TODO: ĐANG LÀM
-            // studentIDs = new List<string>();
-            // var cell = StudentDGV.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
-            // string studentID = StudentDGV["StudentID", cell.RowIndex].Value.ToString();
-            MessageBox.Show($"Lấy chi tiết của hàng có mã sinh viên");
-        }
-        DataGridViewCellEventArgs mouseLocation;
-        void AddMouseEnterEvent() {
-            StudentDGV.CellMouseEnter += (s, e) => { mouseLocation = e; };
+            string studentID = null;
+            if (StudentDGV.CurrentRow != null) {
+                studentID = StudentDGV["StudentID", StudentDGV.CurrentRow.Index].Value.ToString();
+            }
+            Models.Student s = StudentServices.GetStudent(studentID);
+            new AddStudentForm(StudentDGV, s, true).Show();
         }
 
         /// <summary>
@@ -142,10 +140,12 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void createNewBill_Click(object sender, EventArgs e) {
-            // var cell = StudentDGV.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
-            //// do something stupid
-            //cell.Style.BackColor = Color.Red;
-            MessageBox.Show("Tạo hóa đơn cho sinh viên này");
+            // TODO: [Tú] Tạo mới một bill
+            string studentID = null;
+            if (StudentDGV.CurrentRow != null) {
+                studentID = StudentDGV["StudentID", StudentDGV.CurrentRow.Index].Value.ToString();
+            }
+            MessageBox.Show($"Tạo hóa đơn cho sinh viên có mã: {studentID}");
         }
         /// <summary>
         /// 
@@ -173,10 +173,8 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// <param name="e"></param>
         private void cbbField_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedValue = cbbField.SelectedItem.ToString();
-            // MessageBox.Show($"Giá trị khi lọc theo cột: {selectedValue}", "Thông báo");
             foreach (var col in colsStudent) {
                 if (col.DisplayName == selectedValue) {
-                    // MessageBox.Show($"Giá trị mảng khớp được chọn: {col.Value}", "Thông báo");
                     colFilter = col.Value;
                     break;
                 }
@@ -206,12 +204,10 @@ namespace ManageDormitory.PresentationLayer.Student {
                 string studentID = StudentDGV["StudentID", e.RowIndex].Value.ToString();
                 if (isChecked) {
                     studentIDs.Add(studentID);
-                    // MessageBox.Show($"Checkbox đã được chọn có mã sinh viên {studentID}");
                 } else {
                     studentIDs.Remove(studentID);
                 }
 
-                // MessageBox.Show($"Mảng có mã sinh viên có độ dài {studentIDs.Count()}");
                 switch (studentIDs.Count()) {
                     case 0:
                         btnUpdate.Enabled = btnDelete.Enabled = false;
