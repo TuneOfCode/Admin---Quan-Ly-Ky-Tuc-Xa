@@ -1,6 +1,8 @@
 ﻿using ManageDormitory.BusinessLayer;
 using PresentationLayer;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ManageDormitory.PresentationLayer.Student {
@@ -35,6 +37,7 @@ namespace ManageDormitory.PresentationLayer.Student {
             this.studentDGV = studentDGV;
             this.student = student;
             this.isReadonly = isReadonly;
+            cbbRoomRange.Enabled = cbbRoomID.Enabled = btnReset.Visible = false;
 
             // Đôi tên form
             if (student != null && !isReadonly) {
@@ -44,6 +47,16 @@ namespace ManageDormitory.PresentationLayer.Student {
             } else {
                 Text = "Biểu mẫu thêm sinh viên";
             }
+            // thêm dữ liệu vào khu vực phòng ở
+            string[] areas = { };
+            IList<Models.Room> rooms = RoomServices.ListOfRooms();
+            foreach (var room in rooms) {
+                if (room != null && !areas.Contains(room.area)) {
+                    Array.Resize(ref areas, areas.Length + 1);
+                    areas[areas.Length - 1] = room.area;
+                }
+            }
+            cbbRoomArea.Items.AddRange(areas);
         }
         /// <summary>
         /// Chức năng tải ảnh đại diện của sinh viên
@@ -183,9 +196,8 @@ namespace ManageDormitory.PresentationLayer.Student {
                     lbStudentSchool.Text,
                     lbStudentIndustry.Text,
                     lbStudentCourse.Text,
-                    // lbRoomID.Text,
+                    lbRoomID.Text,
             };
-
             string avatar = pbStudentAvatar.ImageLocation;
             bool gender = true;
             if (rbStudentGenderFeman.Checked) {
@@ -198,6 +210,15 @@ namespace ManageDormitory.PresentationLayer.Student {
             DateTime? studentDateIssue = Codes.DMYStingToDateTime(
                 dtpStudentDateIssue.Text
             );
+            if (string.IsNullOrEmpty(cbbRoomID.Text)) {
+                MessageBox.Show(
+                   $"Vui lòng chọn phòng",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error
+               );
+                return;
+            }
             string[] values = {
                     avatar,
                     txtStudentID.Text,
@@ -213,12 +234,36 @@ namespace ManageDormitory.PresentationLayer.Student {
                     txtStudentSchool.Text,
                     txtStudentIndustry.Text,
                     txtStudentCourse.Text,
-                    // cbbRoomID.Text,
+                    cbbRoomID.SelectedItem.ToString(),
             };
 
             // kiểm tra có lỗi đầu vào hay không
             bool hasError = CustomException.ValidateNotEmptyFields(cols, values);
             if (hasError) {
+                return;
+            }
+
+            // kiểm tra trường hợp chọn phòng:
+            //  + loại phòng: nam / nữ
+            //  + số lượng
+            bool isRoomType = (txtRoomType.Text == "nam") ? true : false;
+            string type = isRoomType ? "nữ" : "nam";
+            if (gender != isRoomType) {
+                MessageBox.Show(
+                   $"Vui lòng chọn phòng khác. Phải chọn loại phòng giành cho {type}",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error
+               );
+                return;
+            }
+            if (txtRoomQuantity.Text == txtRoomMaxQuantity.Text) {
+                MessageBox.Show(
+                   $"Hiện phòng đã đầy. Vui lòng chọn phòng khác",
+                   "Lỗi",
+                   MessageBoxButtons.OK,
+                   MessageBoxIcon.Error
+               );
                 return;
             }
             //cols.Append(lbRoomID.Text);
@@ -248,6 +293,7 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// <param name="e"></param>
         private void AddStudentForm_Load(object sender, EventArgs e) {
             isSaved = false;
+
             if (student == null) {
                 txtStudentID.Enabled = true;
                 return;
@@ -271,6 +317,18 @@ namespace ManageDormitory.PresentationLayer.Student {
             txtStudentCourse.Text = student.course;
             cbbRoomID.Text = student.room_id;
 
+            if (!string.IsNullOrEmpty(student.room_id)) {
+                Models.Room room = RoomServices.GetRoom(student.room_id);
+                int currentQuantity = StudentServices.Count("Student", "room_id", student.room_id);
+                cbbRoomArea.Text = room.area;
+                cbbRoomRange.Text = room.range;
+                txtRoomType.Text = room.type;
+                txtRoomQuantity.Text = currentQuantity.ToString();
+                txtRoomMaxQuantity.Text = room.quantity.ToString();
+                txtRoomPrice.Text = room.price.ToString("N2");
+                txtRoomStatus.Text = room.status;
+            }
+
             // xử lý khi có cờ đọc chi tiết
             pbStudentAvatar.Enabled
             = txtStudentID.Enabled
@@ -288,11 +346,91 @@ namespace ManageDormitory.PresentationLayer.Student {
             = txtStudentIndustry.Enabled
             = txtStudentCourse.Enabled
             = cbbRoomArea.Enabled
-            = cbbRoomRange.Enabled
+            // = cbbRoomRange.Enabled
             = cbbRoomID.Enabled
             = btnCancel.Visible
             = btnSave.Visible
             = !isReadonly;
+            btnReset.Visible = false;
+        }
+        /// <summary>
+        /// Xử lý khi chọn vào khu vực phòng ở
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbbRoomArea_SelectedIndexChanged(object sender, EventArgs e) {
+            cbbRoomRange.Items.Clear();
+            cbbRoomRange.Enabled = btnReset.Visible = true;
+            cbbRoomArea.Enabled = false;
+            string selectedValue = cbbRoomArea.SelectedItem.ToString();
+            IList<Models.Room> rooms = RoomServices.ListOfRooms("Room", "area", selectedValue);
+            string[] ranges = { };
+            foreach (var room in rooms) {
+                if (room != null && !ranges.Contains(room.range)) {
+                    Array.Resize(ref ranges, ranges.Length + 1);
+                    ranges[ranges.Length - 1] = room.range;
+                }
+            }
+            cbbRoomRange.Items.AddRange(ranges);
+        }
+        /// <summary>
+        /// Xử lý khi chọn vào dãy phòng ở
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbbRoomRange_SelectedIndexChanged(object sender, EventArgs e) {
+            cbbRoomID.SelectedItem = "";
+            cbbRoomID.Items.Clear();
+            cbbRoomID.Enabled = true;
+            cbbRoomRange.Enabled = false;
+            string selectedValue = cbbRoomRange.SelectedItem.ToString();
+            string sql = $"SELECT * FROM Room WHERE area = '{cbbRoomArea.SelectedItem}' AND range = '{selectedValue}'";
+            IList<Models.Room> rooms = RoomServices.QuerySQL(sql);
+            string[] ids = { };
+            foreach (var room in rooms) {
+                if (room != null && !ids.Contains(room.id)) {
+                    Array.Resize(ref ids, ids.Length + 1);
+                    ids[ids.Length - 1] = room.id;
+                }
+            }
+            cbbRoomID.Items.AddRange(ids);
+        }
+        /// <summary>
+        /// Xử lý khi chọn phòng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cbbRoomID_SelectedIndexChanged(object sender, EventArgs e) {
+            string selectedValue = cbbRoomID.SelectedItem.ToString();
+            Models.Room room = RoomServices.GetRoom(selectedValue);
+            int currentQuantity = StudentServices.Count("Student", "room_id", selectedValue);
+            txtRoomType.Text = room.type;
+            txtRoomQuantity.Text = currentQuantity.ToString();
+            txtRoomMaxQuantity.Text = room.quantity.ToString();
+            txtRoomPrice.Text = room.price.ToString("N2");
+            txtRoomStatus.Text = room.status;
+            btnReset.Visible = true;
+        }
+        /// <summary>
+        /// Xử lý khi đặt lại giá trị cho khu vực, dãy và phòng
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnReset_Click(object sender, EventArgs e) {
+            cbbRoomArea.Items.Clear();
+            cbbRoomArea.Enabled = true;
+            cbbRoomRange.Enabled = false;
+            // thêm dữ liệu vào khu vực phòng ở
+            string[] areas = { };
+            IList<Models.Room> rooms = RoomServices.ListOfRooms();
+            foreach (var room in rooms) {
+                if (room != null && !areas.Contains(room.area)) {
+                    Array.Resize(ref areas, areas.Length + 1);
+                    areas[areas.Length - 1] = room.area;
+                }
+            }
+            cbbRoomArea.Items.AddRange(areas);
+            btnReset.Visible = cbbRoomID.Enabled = false;
         }
     }
 }

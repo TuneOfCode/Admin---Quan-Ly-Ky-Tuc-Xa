@@ -92,7 +92,7 @@ namespace ManageDormitory.BusinessLayer {
             student.school = data[11];
             student.industry = data[12];
             student.course = data[13];
-            // student.room_id = data[14];
+            student.room_id = data[14];
             return studentDAL.Create(student);
         }
         /// <summary>
@@ -116,7 +116,7 @@ namespace ManageDormitory.BusinessLayer {
             student.school = data[11];
             student.industry = data[12];
             student.course = data[13];
-            // student.room_id = data[14];
+            student.room_id = data[14];
             return studentDAL.Update(student);
         }
         /// <summary>

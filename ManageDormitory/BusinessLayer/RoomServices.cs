@@ -103,5 +103,13 @@ namespace ManageDormitory.BusinessLayer {
                 string value = null) {
             return roomDAL.Count(table, column, value);
         }
+        /// <summary>
+        /// Thực thi sql dưới dạng truy vấn
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static IList<Room> QuerySQL(string sql) {
+            return roomDAL.QuerySQL(sql);
+        }
     }
 }

@@ -72,6 +72,7 @@
             this.txtRoomMaxQuantity = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.gbStudentInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentAvatar)).BeginInit();
             this.gbRoomInfor.SuspendLayout();
@@ -362,6 +363,7 @@
             // 
             // gbRoomInfor
             // 
+            this.gbRoomInfor.Controls.Add(this.btnReset);
             this.gbRoomInfor.Controls.Add(this.cbbRoomID);
             this.gbRoomInfor.Controls.Add(this.cbbRoomArea);
             this.gbRoomInfor.Controls.Add(this.cbbRoomRange);
@@ -388,27 +390,35 @@
             // 
             // cbbRoomID
             // 
+            this.cbbRoomID.Enabled = false;
             this.cbbRoomID.FormattingEnabled = true;
             this.cbbRoomID.Location = new System.Drawing.Point(623, 35);
             this.cbbRoomID.Name = "cbbRoomID";
             this.cbbRoomID.Size = new System.Drawing.Size(122, 24);
+            this.cbbRoomID.Sorted = true;
             this.cbbRoomID.TabIndex = 17;
+            this.cbbRoomID.SelectedIndexChanged += new System.EventHandler(this.cbbRoomID_SelectedIndexChanged);
             // 
             // cbbRoomArea
             // 
             this.cbbRoomArea.FormattingEnabled = true;
-            this.cbbRoomArea.Location = new System.Drawing.Point(389, 35);
+            this.cbbRoomArea.Location = new System.Drawing.Point(143, 35);
             this.cbbRoomArea.Name = "cbbRoomArea";
-            this.cbbRoomArea.Size = new System.Drawing.Size(169, 24);
-            this.cbbRoomArea.TabIndex = 16;
+            this.cbbRoomArea.Size = new System.Drawing.Size(137, 24);
+            this.cbbRoomArea.Sorted = true;
+            this.cbbRoomArea.TabIndex = 15;
+            this.cbbRoomArea.SelectedIndexChanged += new System.EventHandler(this.cbbRoomArea_SelectedIndexChanged);
             // 
             // cbbRoomRange
             // 
+            this.cbbRoomRange.Enabled = false;
             this.cbbRoomRange.FormattingEnabled = true;
-            this.cbbRoomRange.Location = new System.Drawing.Point(143, 35);
+            this.cbbRoomRange.Location = new System.Drawing.Point(386, 35);
             this.cbbRoomRange.Name = "cbbRoomRange";
             this.cbbRoomRange.Size = new System.Drawing.Size(169, 24);
-            this.cbbRoomRange.TabIndex = 15;
+            this.cbbRoomRange.Sorted = true;
+            this.cbbRoomRange.TabIndex = 16;
+            this.cbbRoomRange.SelectedIndexChanged += new System.EventHandler(this.cbbRoomRange_SelectedIndexChanged);
             // 
             // txtRoomType
             // 
@@ -422,7 +432,7 @@
             // lbRoomPrice
             // 
             this.lbRoomPrice.AutoSize = true;
-            this.lbRoomPrice.Location = new System.Drawing.Point(9, 111);
+            this.lbRoomPrice.Location = new System.Drawing.Point(6, 111);
             this.lbRoomPrice.Name = "lbRoomPrice";
             this.lbRoomPrice.Size = new System.Drawing.Size(95, 17);
             this.lbRoomPrice.TabIndex = 1;
@@ -431,7 +441,7 @@
             // lbRoomRange
             // 
             this.lbRoomRange.AutoSize = true;
-            this.lbRoomRange.Location = new System.Drawing.Point(10, 38);
+            this.lbRoomRange.Location = new System.Drawing.Point(286, 38);
             this.lbRoomRange.Name = "lbRoomRange";
             this.lbRoomRange.Size = new System.Drawing.Size(91, 17);
             this.lbRoomRange.TabIndex = 1;
@@ -458,7 +468,7 @@
             // lbRoomArea
             // 
             this.lbRoomArea.AutoSize = true;
-            this.lbRoomArea.Location = new System.Drawing.Point(318, 38);
+            this.lbRoomArea.Location = new System.Drawing.Point(10, 38);
             this.lbRoomArea.Name = "lbRoomArea";
             this.lbRoomArea.Size = new System.Drawing.Size(71, 17);
             this.lbRoomArea.TabIndex = 1;
@@ -556,6 +566,17 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(693, 11);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(52, 18);
+            this.btnReset.TabIndex = 18;
+            this.btnReset.Text = "Đặt lại";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // AddStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -632,5 +653,6 @@
         private System.Windows.Forms.ComboBox cbbRoomRange;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnReset;
     }
 }

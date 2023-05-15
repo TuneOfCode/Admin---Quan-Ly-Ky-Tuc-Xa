@@ -49,7 +49,7 @@ namespace ManageDormitory.DataAccessLayer {
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        T QuerySQL(string sql);
+        IList<T> QuerySQL(string sql);
         /// <summary>
         /// Thực thi câu lệnh SQL dạng tác động
         /// </summary>

@@ -204,8 +204,8 @@ namespace ManageDormitory.DataAccessLayer {
         /// </summary>
         /// <param name="sql"></param>
         /// <returns></returns>
-        T IBaseDAL<T>.QuerySQL(string sql) {
-            return _baseEntity.SqlQuery(sql).FirstOrDefault();
+        IList<T> IBaseDAL<T>.QuerySQL(string sql) {
+            return _baseEntity.SqlQuery(sql).ToList();
         }
         /// <summary>
         /// Thực thi câu lệnh SQL dạng tác động
