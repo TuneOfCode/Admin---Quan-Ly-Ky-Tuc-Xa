@@ -155,7 +155,6 @@ namespace ManageDormitory.DataAccessLayer {
         /// <returns></returns> 
         public int Update(T data) {
             try {
-                // _manageDormitoryEntities.Entry(_instance).State = EntityState.Modified;
                 _baseEntity.AddOrUpdate(data);
                 return _manageDormitoryEntities.SaveChanges();
             } catch (DbEntityValidationException ex) {

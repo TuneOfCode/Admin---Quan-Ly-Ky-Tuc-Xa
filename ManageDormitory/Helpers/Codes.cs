@@ -96,7 +96,7 @@ namespace ManageDormitory {
         /// <param name="dgv"></param>
         /// <param name="e"></param>
         public static void AllowedCheckbox(DataGridView dgv, DataGridViewCellEventArgs e) {
-            if (e.ColumnIndex == 0) {
+            if (e.ColumnIndex == 0 && e.RowIndex >= 0) {
                 dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value =
                     (dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null
                         ? true

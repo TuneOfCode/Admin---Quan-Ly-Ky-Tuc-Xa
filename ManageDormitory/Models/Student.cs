@@ -33,7 +33,6 @@ namespace ManageDormitory.Models
         public string industry { get; set; }
         public string phone { get; set; }
         public string email { get; set; }
-        public int status { get; set; }
         public string room_id { get; set; }
         public Nullable<System.DateTime> contract_signing_date { get; set; }
         public string avatar { get; set; }

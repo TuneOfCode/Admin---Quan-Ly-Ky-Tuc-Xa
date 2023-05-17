@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\BoardingBillServices.cs" />
     <Compile Include="BusinessLayer\RoomServices.cs" />
     <Compile Include="DataAccessLayer\SQLServer\BoardingBillDAL.cs" />
     <Compile Include="DataAccessLayer\SQLServer\ElectricityWaterBillDAL.cs" />
@@ -106,6 +107,18 @@
     <Compile Include="DataAccessLayer\SQLServer\StudentDAL.cs" />
     <Compile Include="Helpers\Codes.cs" />
     <Compile Include="Helpers\Temp.cs" />
+    <Compile Include="PresentationLayer\Bill\AddBoardingBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\AddBoardingBillForm.Designer.cs">
+      <DependentUpon>AddBoardingBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\MainBoardingBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\MainBoardingBillForm.Designer.cs">
+      <DependentUpon>MainBoardingBillForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,8 +154,17 @@
     <EmbeddedResource Include="PresentationLayer\Auth\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Bill\AddBoardingBillForm.resx">
+      <DependentUpon>AddBoardingBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Bill\MainBoardingBillForm.resx">
+      <DependentUpon>MainBoardingBillForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Room\MainRoomForm.resx">
+      <DependentUpon>MainRoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -182,7 +204,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PresentationLayer\Bill\" />
     <Folder Include="Public\Icons\" />
   </ItemGroup>
   <ItemGroup>

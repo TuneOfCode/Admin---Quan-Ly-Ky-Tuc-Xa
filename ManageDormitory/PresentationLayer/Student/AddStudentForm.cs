@@ -155,6 +155,11 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// </summary>
         /// <param name="values"></param>
         public void SaveWithUpdate(string[] values) {
+            //string val = "";
+            //foreach (string value in values) {
+            //    val += $"\n {value} \n";
+            //}
+            //MessageBox.Show($"values: {val}");
             // cập nhật sinh viên
             int isUpdated = StudentServices.UpdateStudent(values);
             if (isUpdated == 1) {
@@ -234,7 +239,7 @@ namespace ManageDormitory.PresentationLayer.Student {
                     txtStudentSchool.Text,
                     txtStudentIndustry.Text,
                     txtStudentCourse.Text,
-                    cbbRoomID.SelectedItem.ToString(),
+                    cbbRoomID.Text,
             };
 
             // kiểm tra có lỗi đầu vào hay không
@@ -266,8 +271,6 @@ namespace ManageDormitory.PresentationLayer.Student {
                );
                 return;
             }
-            //cols.Append(lbRoomID.Text);
-            //values.Append(cbbRoomID.Text);
 
             // trường hợp thêm
             if (student == null) {
@@ -331,7 +334,7 @@ namespace ManageDormitory.PresentationLayer.Student {
 
             // xử lý khi có cờ đọc chi tiết
             pbStudentAvatar.Enabled
-            = txtStudentID.Enabled
+            // = txtStudentID.Enabled
             = txtStudentName.Enabled
             = rbStudentGenderMan.Enabled
             = rbStudentGenderFeman.Enabled
@@ -347,11 +350,11 @@ namespace ManageDormitory.PresentationLayer.Student {
             = txtStudentCourse.Enabled
             = cbbRoomArea.Enabled
             // = cbbRoomRange.Enabled
-            = cbbRoomID.Enabled
+            // = cbbRoomID.Enabled
             = btnCancel.Visible
             = btnSave.Visible
             = !isReadonly;
-            btnReset.Visible = false;
+            btnReset.Visible = cbbRoomID.Enabled = false;
         }
         /// <summary>
         /// Xử lý khi chọn vào khu vực phòng ở
@@ -409,6 +412,7 @@ namespace ManageDormitory.PresentationLayer.Student {
             txtRoomMaxQuantity.Text = room.quantity.ToString();
             txtRoomPrice.Text = room.price.ToString("N2");
             txtRoomStatus.Text = room.status;
+            cbbRoomID.Enabled = false;
             btnReset.Visible = true;
         }
         /// <summary>

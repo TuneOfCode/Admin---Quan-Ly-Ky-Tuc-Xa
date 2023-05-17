@@ -1,4 +1,5 @@
 ﻿using ManageDormitory.BusinessLayer;
+using ManageDormitory.PresentationLayer.Bill;
 using PresentationLayer.Helpers;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace ManageDormitory.PresentationLayer.Student {
         /// </summary>
         private IList<Models.Student> students;
         /// <summary>
-        /// Danh sáchh mã sinh viên khi được checkbox
+        /// Danh sách mã sinh viên khi được checkbox
         /// </summary>
         List<string> studentIDs;
         /// <summary>
@@ -86,13 +87,14 @@ namespace ManageDormitory.PresentationLayer.Student {
             ToolStripItem checkAll = strip.Items.Add("Chọn tất cả");
             ToolStripItem unCheckAll = strip.Items.Add("Huỷ chọn tất cả");
             ToolStripItem getDetail = strip.Items.Add("Xem chi tiết");
-            ToolStripItem createNewBill = strip.Items.Add("Tạo hóa đơn mới");
+            ToolStripItem showOldBills = strip.Items.Add("Xem hoá đơn của sinh viên này");
+            ToolStripItem createNewBill = strip.Items.Add("Tạo hóa đơn mới cho sinh viên này");
 
             checkAll.Click += new EventHandler(checkAll_Click);
             unCheckAll.Click += new EventHandler(unCheckAll_Click);
             getDetail.Click += new EventHandler(getDetail_Click);
             createNewBill.Click += new EventHandler(createNewBill_Click);
-
+            showOldBills.Click += new EventHandler(showOldBills_Click);
 
             foreach (DataGridViewColumn column in dgv.Columns) {
                 column.ContextMenuStrip = strip;
@@ -133,7 +135,6 @@ namespace ManageDormitory.PresentationLayer.Student {
             Models.Student s = StudentServices.GetStudent(studentID);
             new AddStudentForm(StudentDGV, s, true).Show();
         }
-
         /// <summary>
         /// Sự kiến tạo một hoá đơn mới cho một sinh viên được chọn
         /// </summary>
@@ -145,7 +146,20 @@ namespace ManageDormitory.PresentationLayer.Student {
             if (StudentDGV.CurrentRow != null) {
                 studentID = StudentDGV["StudentID", StudentDGV.CurrentRow.Index].Value.ToString();
             }
-            MessageBox.Show($"Tạo hóa đơn cho sinh viên có mã: {studentID}");
+            new AddBoardingBillForm(studentID).Show();
+        }
+        /// <summary>
+        /// Sự kiến xem hoá đơn cho một sinh viên được chọn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void showOldBills_Click(object sender, EventArgs e) {
+            // TODO: [Tú] Tạo mới một bill
+            string studentID = null;
+            if (StudentDGV.CurrentRow != null) {
+                studentID = StudentDGV["StudentID", StudentDGV.CurrentRow.Index].Value.ToString();
+            }
+            new MainBoardingBillForm(studentID).Show();
         }
         /// <summary>
         /// 

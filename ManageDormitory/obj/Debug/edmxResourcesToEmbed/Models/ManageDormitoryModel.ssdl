@@ -5,11 +5,12 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="1000" Nullable="false" />
     <Property Name="date_founded" Type="datetime" Nullable="false" />
     <Property Name="total" Type="money" Nullable="false" />
     <Property Name="student_id" Type="nvarchar" MaxLength="10" />
     <Property Name="note" Type="nvarchar" MaxLength="300" />
+    <Property Name="status" Type="nvarchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="ElectricityWaterBill">
     <Key>
@@ -28,7 +29,7 @@
     <Property Name="water_money" Type="money" Nullable="false" />
     <Property Name="environmental_charges" Type="money" Nullable="false" />
     <Property Name="into_money" Type="money" Nullable="false" />
-    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="payment_date" Type="datetime" />
     <Property Name="room_id" Type="nvarchar" MaxLength="10" />
     <Property Name="note" Type="nvarchar" MaxLength="300" />
@@ -62,7 +63,6 @@
     <Property Name="industry" Type="nvarchar" MaxLength="50" />
     <Property Name="phone" Type="nvarchar" MaxLength="10" />
     <Property Name="email" Type="nvarchar" MaxLength="200" />
-    <Property Name="status" Type="int" Nullable="false" />
     <Property Name="room_id" Type="nvarchar" MaxLength="10" />
     <Property Name="contract_signing_date" Type="datetime" />
     <Property Name="avatar" Type="nvarchar" MaxLength="1000" />

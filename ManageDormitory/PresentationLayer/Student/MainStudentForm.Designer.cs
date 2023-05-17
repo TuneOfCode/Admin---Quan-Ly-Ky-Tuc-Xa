@@ -26,6 +26,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainStudentForm));
             this.lbTitle = new System.Windows.Forms.Label();
             this.StudentDGV = new System.Windows.Forms.DataGridView();
+            this.btnCreate = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.cbbField = new System.Windows.Forms.ComboBox();
             this.CBStudent = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,12 +41,6 @@
             this.StudentPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentContractSigningDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.cbbField = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,71 +78,6 @@
             this.StudentDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentDGV_CellClick);
             this.StudentDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.StudentDGV_CellValueChanged);
             this.StudentDGV.MouseClick += new System.Windows.Forms.MouseEventHandler(this.StudentDataGridView_MouseClick);
-            // 
-            // CBStudent
-            // 
-            this.CBStudent.HeaderText = "";
-            this.CBStudent.Name = "CBStudent";
-            this.CBStudent.ReadOnly = true;
-            this.CBStudent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.CBStudent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.CBStudent.Width = 20;
-            // 
-            // STT
-            // 
-            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.STT.HeaderText = "STT";
-            this.STT.Name = "STT";
-            this.STT.ReadOnly = true;
-            this.STT.Width = 53;
-            // 
-            // StudentID
-            // 
-            this.StudentID.HeaderText = "ID";
-            this.StudentID.Name = "StudentID";
-            this.StudentID.ReadOnly = true;
-            this.StudentID.Visible = false;
-            // 
-            // StudentName
-            // 
-            this.StudentName.HeaderText = "Họ và tên";
-            this.StudentName.Name = "StudentName";
-            this.StudentName.ReadOnly = true;
-            this.StudentName.Width = 120;
-            // 
-            // StudentGender
-            // 
-            this.StudentGender.HeaderText = "Giới tính";
-            this.StudentGender.Name = "StudentGender";
-            this.StudentGender.ReadOnly = true;
-            this.StudentGender.Width = 70;
-            // 
-            // StudentBirthdate
-            // 
-            this.StudentBirthdate.HeaderText = "Ngày sinh";
-            this.StudentBirthdate.Name = "StudentBirthdate";
-            this.StudentBirthdate.ReadOnly = true;
-            this.StudentBirthdate.Width = 110;
-            // 
-            // StudentPhone
-            // 
-            this.StudentPhone.HeaderText = "Số điện thoại";
-            this.StudentPhone.Name = "StudentPhone";
-            this.StudentPhone.ReadOnly = true;
-            // 
-            // StudentSchool
-            // 
-            this.StudentSchool.HeaderText = "Trường đại học";
-            this.StudentSchool.Name = "StudentSchool";
-            this.StudentSchool.ReadOnly = true;
-            this.StudentSchool.Width = 140;
-            // 
-            // StudentContractSigningDate
-            // 
-            this.StudentContractSigningDate.HeaderText = "Ngày ký hợp đồng";
-            this.StudentContractSigningDate.Name = "StudentContractSigningDate";
-            this.StudentContractSigningDate.ReadOnly = true;
-            this.StudentContractSigningDate.Width = 120;
             // 
             // btnCreate
             // 
@@ -218,6 +153,72 @@
             this.cbbField.TabIndex = 4;
             this.cbbField.SelectedIndexChanged += new System.EventHandler(this.cbbField_SelectedIndexChanged);
             // 
+            // CBStudent
+            // 
+            this.CBStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.CBStudent.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.CBStudent.HeaderText = "Chọn";
+            this.CBStudent.Name = "CBStudent";
+            this.CBStudent.ReadOnly = true;
+            this.CBStudent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.CBStudent.ThreeState = true;
+            this.CBStudent.Width = 38;
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.STT.HeaderText = "STT";
+            this.STT.Name = "STT";
+            this.STT.ReadOnly = true;
+            this.STT.Width = 53;
+            // 
+            // StudentID
+            // 
+            this.StudentID.HeaderText = "Mã sinh viên";
+            this.StudentID.Name = "StudentID";
+            this.StudentID.ReadOnly = true;
+            // 
+            // StudentName
+            // 
+            this.StudentName.HeaderText = "Họ và tên";
+            this.StudentName.Name = "StudentName";
+            this.StudentName.ReadOnly = true;
+            this.StudentName.Width = 120;
+            // 
+            // StudentGender
+            // 
+            this.StudentGender.HeaderText = "Giới tính";
+            this.StudentGender.Name = "StudentGender";
+            this.StudentGender.ReadOnly = true;
+            this.StudentGender.Width = 70;
+            // 
+            // StudentBirthdate
+            // 
+            this.StudentBirthdate.HeaderText = "Ngày sinh";
+            this.StudentBirthdate.Name = "StudentBirthdate";
+            this.StudentBirthdate.ReadOnly = true;
+            this.StudentBirthdate.Width = 110;
+            // 
+            // StudentPhone
+            // 
+            this.StudentPhone.HeaderText = "Số điện thoại";
+            this.StudentPhone.Name = "StudentPhone";
+            this.StudentPhone.ReadOnly = true;
+            // 
+            // StudentSchool
+            // 
+            this.StudentSchool.HeaderText = "Trường đại học";
+            this.StudentSchool.Name = "StudentSchool";
+            this.StudentSchool.ReadOnly = true;
+            this.StudentSchool.Width = 140;
+            // 
+            // StudentContractSigningDate
+            // 
+            this.StudentContractSigningDate.HeaderText = "Ngày ký hợp đồng";
+            this.StudentContractSigningDate.Name = "StudentContractSigningDate";
+            this.StudentContractSigningDate.ReadOnly = true;
+            this.StudentContractSigningDate.Width = 120;
+            // 
             // MainStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +253,7 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cbbField;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CBStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
@@ -261,6 +263,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentPhone;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentSchool;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentContractSigningDate;
-        private System.Windows.Forms.ComboBox cbbField;
     }
 }

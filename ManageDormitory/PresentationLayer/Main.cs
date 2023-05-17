@@ -1,4 +1,6 @@
 ﻿using ManageDormitory.PresentationLayer.Auth;
+using ManageDormitory.PresentationLayer.Bill;
+using ManageDormitory.PresentationLayer.Room;
 using ManageDormitory.PresentationLayer.Student;
 using System;
 using System.Windows.Forms;
@@ -80,6 +82,22 @@ namespace ManageDormitory.PresentationLayer {
         private void LogoutTSMI_Click(object sender, EventArgs e) {
             Temp.IsShow = !Temp.IsShow;
             ToogleMenuItem(Temp.IsShow);
+        }
+        /// <summary>
+        /// Xử lý sự kiện khi chọn mục quản lý phòng ở
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ManageRoomTSMI_Click(object sender, EventArgs e) {
+            new MainRoomForm().Show();
+        }
+        /// <summary>
+        /// Xử lý sự kiện khi chọn mục quản lý hoá đơn nội trú
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ManageBoardingBillTSMI_Click(object sender, EventArgs e) {
+            new MainBoardingBillForm().Show();
         }
     }
 }

@@ -7,7 +7,6 @@ using System.Windows.Forms;
 
 namespace ManageDormitory.BusinessLayer {
     public static class RoomServices {
-        private static string FORMAT_DATETIME = "dd/MM/yyyy";
         private static ManageDormitoryEntities manageDormitoryEntities;
         private static Room room;
         private static readonly IBaseDAL<Room> roomDAL;
@@ -24,7 +23,26 @@ namespace ManageDormitory.BusinessLayer {
         /// </summary>
         /// <param name="RoomDGV"></param>
         public static void LoadDatatable(DataGridView RoomDGV, IList<Room> rooms) {
-            // TODO: [Ni] Load lại dữ liệu bảng phòng ở
+            if (rooms.Count == 0) {
+                return;
+            }
+
+            for (int i = 0; i < rooms.Count; i++) {
+                var room = rooms[i];
+                int currentQuantity = StudentServices.Count("Student", "room_id", room.id);
+                RoomDGV.Rows.Add(
+                    false,
+                    (i + 1),
+                    room.id,
+                    room.area,
+                    room.range,
+                    room.type,
+                    currentQuantity,
+                    room.quantity,
+                    room.price,
+                    room.status
+                );
+            }
         }
         /// <summary>
         /// Lấy tất cả dữ liệu có tìm kiếm của phòng ở

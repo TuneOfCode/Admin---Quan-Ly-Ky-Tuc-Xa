@@ -10,6 +10,7 @@
           <ScalarProperty Name="total" ColumnName="total" />
           <ScalarProperty Name="student_id" ColumnName="student_id" />
           <ScalarProperty Name="note" ColumnName="note" />
+          <ScalarProperty Name="status" ColumnName="status" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -65,7 +66,6 @@
           <ScalarProperty Name="industry" ColumnName="industry" />
           <ScalarProperty Name="phone" ColumnName="phone" />
           <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="status" ColumnName="status" />
           <ScalarProperty Name="room_id" ColumnName="room_id" />
           <ScalarProperty Name="contract_signing_date" ColumnName="contract_signing_date" />
           <ScalarProperty Name="avatar" ColumnName="avatar" />
