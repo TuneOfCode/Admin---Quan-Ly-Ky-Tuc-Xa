@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace ManageDormitory.BusinessLayer {
     public class BoardingBillServices {
-        private static string FORMAT_DATETIME = "dd/MM/yyyy";
         private static ManageDormitoryEntities manageDormitoryEntities;
         private static BoardingBill boardingBill;
         private static readonly IBaseDAL<BoardingBill> boardingBillDAL;
@@ -38,7 +37,7 @@ namespace ManageDormitory.BusinessLayer {
                     (i + 1),
                     boardingBill.id,
                     boardingBill.name,
-                    boardingBill.date_founded.ToString(FORMAT_DATETIME),
+                    boardingBill.date_founded,
                     boardingBill.total,
                     student.id,
                     student.name,
@@ -95,14 +94,6 @@ namespace ManageDormitory.BusinessLayer {
         /// <param name="data"></param>
         /// <returns></returns>
         public static int UpdateBoardingBill(BoardingBill data) {
-            //boardingBill = new BoardingBill();
-            //boardingBill.id = int.Parse(data[0]);
-            //boardingBill.name = data[1];
-            //boardingBill.date_founded = DateTime.Parse(data[2]);
-            //boardingBill.total = decimal.Parse(data[3]);
-            //boardingBill.student_id = data[4];
-            //boardingBill.note = data[5];
-            //boardingBill.status = data[6];
             return boardingBillDAL.Update(data);
         }
     }

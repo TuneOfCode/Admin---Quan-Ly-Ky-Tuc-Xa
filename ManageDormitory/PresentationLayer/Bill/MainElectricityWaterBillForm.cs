@@ -5,19 +5,19 @@ using System.Linq;
 using System.Windows.Forms;
 
 namespace ManageDormitory.PresentationLayer.Bill {
-    public partial class MainBoardingBillForm : Form {
+    public partial class MainElectricityWaterBillForm : Form {
         /// <summary>
         /// Giá trị của hoá đơn lấy từ database
         /// </summary>
-        private IList<Models.BoardingBill> boardingBills;
+        private IList<Models.ElectricityWaterBill> electricityWaterBills;
         /// <summary>
         /// Danh sách phòng ở khi được checkbox
         /// </summary>
-        List<string> boardingBillIDs;
+        List<string> electricityWaterBillIDs;
         /// <summary>
-        /// Lấy hoá đơn theo mã sinh viên
+        /// Lấy hoá đơn theo mã phòng
         /// </summary>
-        private string studentID;
+        private string roomID;
         /// <summary>
         /// Giá trị cột được lọc
         /// </summary>
@@ -30,55 +30,55 @@ namespace ManageDormitory.PresentationLayer.Bill {
                 "Chờ thanh toán",
                 "Đã thanh toán"
         };
-        public MainBoardingBillForm(string studentID = "") {
+        public MainElectricityWaterBillForm(string roomID = "") {
             InitializeComponent();
             btnAccept.Enabled = false;
-            boardingBills = new List<Models.BoardingBill>();
-            this.studentID = studentID;
+            electricityWaterBills = new List<Models.ElectricityWaterBill>();
+            this.roomID = roomID;
         }
         /// <summary>
         /// Tải lại toàn bộ dữ liệu
         /// </summary>
         /// <param name="hasNull"></param>
         private void LoadData(bool hasNull = true, string selectedValue = "Xem tất cả") {
-            boardingBillIDs = new List<string>();
-            BoardingBillDGV.Rows.Clear();
+            electricityWaterBillIDs = new List<string>();
+            ElectricityWaterBillDGV.Rows.Clear();
 
-            if ((!string.IsNullOrEmpty(studentID)
-                && string.IsNullOrEmpty(txtSearch.Text)
+            if ((!string.IsNullOrEmpty(roomID)
+            && string.IsNullOrEmpty(txtSearch.Text)
                 && selectedValue == "Xem tất cả")) {
-                boardingBills = BoardingBillServices.ListOfBoardingBills(
-                        "BoardingBill",
-                        "student_id",
-                        studentID
+                electricityWaterBills = ElectricityWaterBillServices.ListOfElectricityWaterBills(
+                    "ElectricityWaterBill",
+                    "room_id",
+                    roomID
                  );
-                BoardingBillServices.LoadDatatable(BoardingBillDGV, boardingBills);
+                ElectricityWaterBillServices.LoadDatatable(ElectricityWaterBillDGV, electricityWaterBills);
                 btnAccept.Enabled = false;
                 return;
             }
             if (string.IsNullOrEmpty(txtSearch.Text)
                         && selectedValue == "Xem tất cả") {
-                boardingBills = BoardingBillServices.ListOfBoardingBills();
-                BoardingBillServices.LoadDatatable(BoardingBillDGV, boardingBills);
+                electricityWaterBills = ElectricityWaterBillServices.ListOfElectricityWaterBills();
+                ElectricityWaterBillServices.LoadDatatable(ElectricityWaterBillDGV, electricityWaterBills);
                 btnAccept.Enabled = false;
                 return;
             }
             if (!string.IsNullOrEmpty(txtSearch.Text) && selectedValue == "Xem tất cả") {
-                boardingBills = BoardingBillServices.ListOfBoardingBills(
+                electricityWaterBills = ElectricityWaterBillServices.ListOfElectricityWaterBills(
                     hasNull ? null : "BoardingBill",
                     hasNull ? null : colFilter,
                     hasNull ? null : txtSearch.Text
                 );
-                BoardingBillServices.LoadDatatable(BoardingBillDGV, boardingBills);
+                ElectricityWaterBillServices.LoadDatatable(ElectricityWaterBillDGV, electricityWaterBills);
                 btnAccept.Enabled = false;
                 return;
             }
-            boardingBills = BoardingBillServices.ListOfBoardingBills(
-                    "BoardingBill",
+            electricityWaterBills = ElectricityWaterBillServices.ListOfElectricityWaterBills(
+                    "ElectricityWaterBill",
                     "status",
                     selectedValue
             );
-            BoardingBillServices.LoadDatatable(BoardingBillDGV, boardingBills);
+            ElectricityWaterBillServices.LoadDatatable(ElectricityWaterBillDGV, electricityWaterBills);
             btnAccept.Enabled = false;
         }
         /// <summary>
@@ -86,7 +86,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void MainBoardingBillForm_Load(object sender, EventArgs e) {
+        private void MainElectricityWaterBillForm_Load(object sender, System.EventArgs e) {
             LoadData();
             cbbField.Items.AddRange(statusFilter);
         }
@@ -113,7 +113,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void checkAll_Click(object sender, EventArgs e) {
-            foreach (DataGridViewRow row in BoardingBillDGV.Rows) {
+            foreach (DataGridViewRow row in ElectricityWaterBillDGV.Rows) {
                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells["CBBoardingBill"];
                 chk.Value = true;
             }
@@ -124,7 +124,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void unCheckAll_Click(object sender, EventArgs e) {
-            foreach (DataGridViewRow row in BoardingBillDGV.Rows) {
+            foreach (DataGridViewRow row in ElectricityWaterBillDGV.Rows) {
                 DataGridViewCheckBoxCell chk = (DataGridViewCheckBoxCell)row.Cells["CBBoardingBill"];
                 chk.Value = false;
             }
@@ -134,18 +134,18 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BoardingBillDGV_CellClick(object sender, DataGridViewCellEventArgs e) {
-            Codes.AllowedCheckbox(BoardingBillDGV, e);
+        private void ElectricityWaterBillDGV_CellClick(object sender, DataGridViewCellEventArgs e) {
+            Codes.AllowedCheckbox(ElectricityWaterBillDGV, e);
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BoardingBillDGV_MouseClick(object sender, MouseEventArgs e) {
+        private void ElectricityWaterBillDGV_MouseClick(object sender, MouseEventArgs e) {
             // sự kiện chuột phải
             if (e.Button == MouseButtons.Right) {
-                AddContextMenu(BoardingBillDGV);
+                AddContextMenu(ElectricityWaterBillDGV);
             }
         }
         /// <summary>
@@ -153,21 +153,21 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void BoardingBillDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
+        private void ElectricityWaterBillDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e) {
             // Kiểm tra xem sự kiện được kích hoạt bởi checkbox hay không
-            if (BoardingBillDGV.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0) {
-                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)BoardingBillDGV.Rows[e.RowIndex].Cells[e.ColumnIndex];
+            if (ElectricityWaterBillDGV.Columns[e.ColumnIndex] is DataGridViewCheckBoxColumn && e.RowIndex >= 0) {
+                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)ElectricityWaterBillDGV.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 bool isChecked = (bool)cell.Value;
 
                 // Xử lý sự kiện checkbox
-                string boardingBillID = BoardingBillDGV["BoardingBillID", e.RowIndex].Value.ToString();
+                string boardingBillID = ElectricityWaterBillDGV["ElecWaterBillID", e.RowIndex].Value.ToString();
                 if (isChecked) {
-                    boardingBillIDs.Add(boardingBillID);
+                    electricityWaterBillIDs.Add(boardingBillID);
                 } else {
-                    boardingBillIDs.Remove(boardingBillID);
+                    electricityWaterBillIDs.Remove(boardingBillID);
                 }
 
-                switch (boardingBillIDs.Count()) {
+                switch (electricityWaterBillIDs.Count()) {
                     case 0:
                         btnAccept.Enabled = false;
                         break;
@@ -187,8 +187,8 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// <param name="e"></param>
         private void txtSearch_TextChanged(object sender, EventArgs e) {
             if (string.IsNullOrEmpty(txtSearch.Text)) {
-                BoardingBillDGV.Rows.Clear();
-                boardingBills = BoardingBillServices.ListOfBoardingBills();
+                ElectricityWaterBillDGV.Rows.Clear();
+                electricityWaterBills = ElectricityWaterBillServices.ListOfElectricityWaterBills();
             }
             bool hasNull = string.IsNullOrEmpty(colFilter) && string.IsNullOrEmpty(txtSearch.Text);
             LoadData(hasNull);
@@ -201,9 +201,9 @@ namespace ManageDormitory.PresentationLayer.Bill {
         private void cbbField_SelectedIndexChanged(object sender, EventArgs e) {
             string selectedValue = cbbField.SelectedItem.ToString();
             if (selectedValue == "Xem tất cả") {
-                BoardingBillDGV.Rows.Clear();
-                boardingBills = BoardingBillServices.ListOfBoardingBills();
-                BoardingBillServices.LoadDatatable(BoardingBillDGV, boardingBills);
+                ElectricityWaterBillDGV.Rows.Clear();
+                electricityWaterBills = ElectricityWaterBillServices.ListOfElectricityWaterBills();
+                ElectricityWaterBillServices.LoadDatatable(ElectricityWaterBillDGV, electricityWaterBills);
                 return;
             }
             LoadData(string.IsNullOrEmpty(selectedValue), selectedValue);
@@ -215,8 +215,8 @@ namespace ManageDormitory.PresentationLayer.Bill {
         /// <param name="e"></param>
         private void btnAccept_Click(object sender, EventArgs e) {
             string infor = "";
-            for (int i = 0; i < boardingBillIDs.Count; i++) {
-                infor += $"\n {i + 1}. {boardingBillIDs[i]} \n";
+            for (int i = 0; i < electricityWaterBillIDs.Count; i++) {
+                infor += $"\n {i + 1}. {electricityWaterBillIDs[i]} \n";
             }
             DialogResult resultMessage = MessageBox.Show(
                 $"Xác nhận những hoá đơn này đã được thanh toán?",
@@ -228,15 +228,15 @@ namespace ManageDormitory.PresentationLayer.Bill {
                 return;
             }
             int isAcceptPayment = 0;
-            for (int i = 0; i < boardingBillIDs.Count; i++) {
-                var boardingBill = BoardingBillServices.GetBoardingBill(
+            for (int i = 0; i < electricityWaterBillIDs.Count; i++) {
+                var elecWaterBill = ElectricityWaterBillServices.GetElectricityWaterBill(
                     null,
-                    "BoardingBill",
+                    "ElectricityWaterBill",
                     "id",
-                    boardingBillIDs[i]
+                    electricityWaterBillIDs[i]
                 );
-                boardingBill.status = "Đã thanh toán";
-                isAcceptPayment = BoardingBillServices.UpdateBoardingBill(boardingBill);
+                elecWaterBill.status = "Đã thanh toán";
+                isAcceptPayment = ElectricityWaterBillServices.UpdateElectricityWaterBill(elecWaterBill);
                 if (isAcceptPayment == 0) {
                     break;
                 }
@@ -251,7 +251,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
                 LoadData();
             } else {
                 MessageBox.Show(
-                  "Có lỗi khi xác nhận!",
+                  "Có lỗi xác nhận!",
                   "Lỗi",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Error

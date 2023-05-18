@@ -34,7 +34,7 @@ namespace ManageDormitory.Models
         public string phone { get; set; }
         public string email { get; set; }
         public string room_id { get; set; }
-        public Nullable<System.DateTime> contract_signing_date { get; set; }
+        public Nullable<System.DateTime> contract_signing_date { get; set; } = DateTime.Now;
         public string avatar { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

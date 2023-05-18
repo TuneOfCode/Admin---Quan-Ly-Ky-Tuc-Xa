@@ -39,3 +39,6 @@ E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.pdb
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddBoardingBillForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.MainRoomForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainBoardingBillForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.AddRoomForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddElectricityWaterBillForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainElectricityWaterBillForm.resources

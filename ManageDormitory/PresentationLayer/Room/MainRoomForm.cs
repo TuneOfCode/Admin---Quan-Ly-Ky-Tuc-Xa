@@ -1,4 +1,5 @@
 ﻿using ManageDormitory.BusinessLayer;
+using ManageDormitory.PresentationLayer.Bill;
 using PresentationLayer.Helpers;
 using System;
 using System.Collections.Generic;
@@ -80,10 +81,12 @@ namespace ManageDormitory.PresentationLayer.Room {
             ContextMenuStrip strip = new ContextMenuStrip();
             ToolStripItem checkAll = strip.Items.Add("Chọn tất cả");
             ToolStripItem unCheckAll = strip.Items.Add("Huỷ chọn tất cả");
-            ToolStripItem createNewBill = strip.Items.Add("Tạo hóa đơn mới");
+            ToolStripItem showNewBill = strip.Items.Add("Xem hóa đơn của phòng này");
+            ToolStripItem createNewBill = strip.Items.Add("Tạo hóa đơn mới cho phòng này");
 
             checkAll.Click += new EventHandler(checkAll_Click);
             unCheckAll.Click += new EventHandler(unCheckAll_Click);
+            showNewBill.Click += new EventHandler(showNewBill_Click);
             createNewBill.Click += new EventHandler(createNewBill_Click);
 
 
@@ -118,12 +121,26 @@ namespace ManageDormitory.PresentationLayer.Room {
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void showNewBill_Click(object sender, EventArgs e) {
+            string roomID = null;
+            if (RoomDGV.CurrentRow != null) {
+                roomID = RoomDGV["RoomID", RoomDGV.CurrentRow.Index].Value.ToString();
+            }
+            new MainElectricityWaterBillForm(roomID).Show();
+        }
+        /// <summary>
+        /// Sự kiến tạo một hoá đơn tiền điện nước mới cho một phòng được chọn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createNewBill_Click(object sender, EventArgs e) {
             string roomID = null;
             if (RoomDGV.CurrentRow != null) {
                 roomID = RoomDGV["RoomID", RoomDGV.CurrentRow.Index].Value.ToString();
             }
             MessageBox.Show($"Tạo hóa đơn cho phòng: {roomID}");
+            var room = RoomServices.GetRoom(roomID);
+            new AddElectricityWaterBillForm(room).Show();
         }
         /// <summary>
         /// 
@@ -205,19 +222,31 @@ namespace ManageDormitory.PresentationLayer.Room {
             bool hasNull = string.IsNullOrEmpty(colFilter) && string.IsNullOrEmpty(txtSearch.Text);
             LoadData(hasNull);
         }
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCreate_Click(object sender, EventArgs e) {
+            new AddRoomForm(RoomDGV).Show();
+            btnUpdate.Enabled = btnDelete.Enabled = false;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            var room = RoomServices.GetRoom(roomIDs[0]);
+            new AddRoomForm(RoomDGV, room).Show();
+            btnUpdate.Enabled = btnDelete.Enabled = false;
+        }
         /// <summary>
         /// Xử lý sự kiện xoá một hoặc nhiều phòng
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e) {
-            string infor = "";
-            for (int i = 0; i < roomIDs.Count; i++) {
-                infor += $"\n {i + 1}. {roomIDs[i]} \n";
-            }
             DialogResult resultMessage = MessageBox.Show(
                 "Bạn có chắc chắn muốn xoá những phòng đã chọn?",
                 "Thông báo",
@@ -227,7 +256,22 @@ namespace ManageDormitory.PresentationLayer.Room {
             if (resultMessage == DialogResult.No) {
                 return;
             }
-            int isDeleted = StudentServices.DeleteStudent(roomIDs);
+            string infor = "";
+            for (int i = 0; i < roomIDs.Count; i++) {
+                var roomID = roomIDs[i];
+                int currentQuantity = StudentServices.Count("Student", "room_id", roomID);
+                if (currentQuantity > 0) {
+                    MessageBox.Show(
+                        $"Hiện tại phòng {roomID} đang có sinh viên ở nên không thể xoá được",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
+                infor += $"\n {i + 1}. {roomIDs[i]} \n";
+            }
+            int isDeleted = RoomServices.DeleteRoom(roomIDs);
             if (isDeleted > 0) {
                 MessageBox.Show
                     ($"Những phòng sau sẽ bị xoá: {infor}",

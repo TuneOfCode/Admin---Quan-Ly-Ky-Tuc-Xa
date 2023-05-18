@@ -99,5 +99,13 @@ namespace ManageDormitory.PresentationLayer {
         private void ManageBoardingBillTSMI_Click(object sender, EventArgs e) {
             new MainBoardingBillForm().Show();
         }
+        /// <summary>
+        /// Xử lý sự kiện khi chọn mục quản lý hoá đơn điện nước
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ManageElecWaterBillTSMI_Click(object sender, EventArgs e) {
+            new MainElectricityWaterBillForm().Show();
+        }
     }
 }

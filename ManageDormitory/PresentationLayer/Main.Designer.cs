@@ -125,6 +125,7 @@
             this.ManageElecWaterBillTSMI.Name = "ManageElecWaterBillTSMI";
             this.ManageElecWaterBillTSMI.Size = new System.Drawing.Size(180, 22);
             this.ManageElecWaterBillTSMI.Text = "Điện nước";
+            this.ManageElecWaterBillTSMI.Click += new System.EventHandler(this.ManageElecWaterBillTSMI_Click);
             // 
             // StatisticTSM
             // 

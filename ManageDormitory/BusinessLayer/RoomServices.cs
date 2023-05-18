@@ -78,8 +78,14 @@ namespace ManageDormitory.BusinessLayer {
         /// <param name="data"></param>
         /// <returns></returns>
         public static int CreateNewRoom(string[] data) {
-            room = new Room();
-            // TODO: [Ni] Thêm dữ liệu phòng ở gán từng giá trị cho room
+            // room = new Room();
+            room.area = data[0];
+            room.range = data[1];
+            room.id = data[2];
+            room.type = data[3];
+            room.quantity = int.Parse(data[4]);
+            room.price = decimal.Parse(data[5]);
+            room.status = data[6];
             return roomDAL.Create(room);
         }
         /// <summary>
@@ -88,8 +94,14 @@ namespace ManageDormitory.BusinessLayer {
         /// <param name="data"></param>
         /// <returns></returns>
         public static int UpdateRoom(string[] data) {
-            room = new Room();
-            // TODO: [Ni] Cập nhật dữ liệu phòng ở gán từng giá trị cho room
+            // room = new Room();
+            room.area = data[0];
+            room.range = data[1];
+            room.id = data[2];
+            room.type = data[3];
+            room.quantity = int.Parse(data[4]);
+            room.price = decimal.Parse(data[5]);
+            room.status = data[6];
             return roomDAL.Update(room);
         }
         /// <summary>

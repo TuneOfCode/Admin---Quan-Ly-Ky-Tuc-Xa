@@ -59,7 +59,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
             };
             string[] values = {
                 txtBoardingBillName.Text,
-                DateTime.Now.Date.ToString(),
+                DateTime.Now.ToString(),
                 txtBoardingBillTotal.Text,
                 txtStudentID.Text,
                 txtBoardingBillNote.Text

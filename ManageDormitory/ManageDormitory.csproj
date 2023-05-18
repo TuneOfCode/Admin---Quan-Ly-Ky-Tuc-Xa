@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLayer\BoardingBillServices.cs" />
+    <Compile Include="BusinessLayer\ElectricityWaterBillServices.cs" />
     <Compile Include="BusinessLayer\RoomServices.cs" />
     <Compile Include="DataAccessLayer\SQLServer\BoardingBillDAL.cs" />
     <Compile Include="DataAccessLayer\SQLServer\ElectricityWaterBillDAL.cs" />
@@ -113,11 +114,23 @@
     <Compile Include="PresentationLayer\Bill\AddBoardingBillForm.Designer.cs">
       <DependentUpon>AddBoardingBillForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PresentationLayer\Bill\AddElectricityWaterBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\AddElectricityWaterBillForm.Designer.cs">
+      <DependentUpon>AddElectricityWaterBillForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Bill\MainBoardingBillForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PresentationLayer\Bill\MainBoardingBillForm.Designer.cs">
       <DependentUpon>MainBoardingBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\MainElectricityWaterBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\MainElectricityWaterBillForm.Designer.cs">
+      <DependentUpon>MainElectricityWaterBillForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Main.cs">
       <SubType>Form</SubType>
@@ -157,11 +170,20 @@
     <EmbeddedResource Include="PresentationLayer\Bill\AddBoardingBillForm.resx">
       <DependentUpon>AddBoardingBillForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Bill\AddElectricityWaterBillForm.resx">
+      <DependentUpon>AddElectricityWaterBillForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Bill\MainBoardingBillForm.resx">
       <DependentUpon>MainBoardingBillForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Bill\MainElectricityWaterBillForm.resx">
+      <DependentUpon>MainElectricityWaterBillForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Room\AddRoomForm.resx">
+      <DependentUpon>AddRoomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Room\MainRoomForm.resx">
       <DependentUpon>MainRoomForm.cs</DependentUpon>

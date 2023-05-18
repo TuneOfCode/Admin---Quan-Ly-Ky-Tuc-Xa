@@ -148,6 +148,13 @@ namespace ManageDormitory.BusinessLayer {
                 string value = null) {
             return studentDAL.Count(table, column, value);
         }
+        /// <summary>
+        /// Thực thi sql dưới dạng truy vấn
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <returns></returns>
+        public static IList<Student> QuerySQL(string sql) {
+            return studentDAL.QuerySQL(sql);
+        }
     }
-
 }
