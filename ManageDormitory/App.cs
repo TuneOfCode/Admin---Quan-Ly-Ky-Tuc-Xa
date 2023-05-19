@@ -12,6 +12,8 @@ namespace ManageDormitory {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Main());
+           // Application.Run(new PresentationLayer.Bill.FormBillFW());
+
         }
     }
 }

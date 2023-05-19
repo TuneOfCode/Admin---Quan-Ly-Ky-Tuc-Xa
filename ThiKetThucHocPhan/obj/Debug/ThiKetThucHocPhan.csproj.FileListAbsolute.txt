@@ -1,0 +1,17 @@
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\bin\Debug\ThiKetThucHocPhan.exe.config
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\bin\Debug\ThiKetThucHocPhan.exe
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\bin\Debug\ThiKetThucHocPhan.pdb
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.csproj.AssemblyReference.cache
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.csproj.SuggestedBindingRedirects.cache
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.FormCapnhat.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.FormDangnhap.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.Form1.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.FormHDdiennuoc.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.FormSinhvien.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.Properties.Resources.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.csproj.GenerateResource.cache
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.csproj.CoreCompileInputs.cache
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.exe
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.pdb
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.FormHDnoitru.resources
+D:\Desktop_C#\ThiKetThucHocPhan\ThiKetThucHocPhan\obj\Debug\ThiKetThucHocPhan.FormthemSV.resources

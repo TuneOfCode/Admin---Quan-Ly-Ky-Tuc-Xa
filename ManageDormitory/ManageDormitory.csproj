@@ -106,6 +106,18 @@
     <Compile Include="DataAccessLayer\SQLServer\StudentDAL.cs" />
     <Compile Include="Helpers\Codes.cs" />
     <Compile Include="Helpers\Temp.cs" />
+    <Compile Include="PresentationLayer\Bill\FormBillFW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\FormBillFW.Designer.cs">
+      <DependentUpon>FormBillFW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\FormBillRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\Bill\FormBillRoom.Designer.cs">
+      <DependentUpon>FormBillRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="PresentationLayer\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +140,12 @@
     </Compile>
     <EmbeddedResource Include="PresentationLayer\Auth\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Bill\FormBillFW.resx">
+      <DependentUpon>FormBillFW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\Bill\FormBillRoom.resx">
+      <DependentUpon>FormBillRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -170,7 +188,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="PresentationLayer\Bill\" />
     <Folder Include="PresentationLayer\Room\" />
     <Folder Include="Public\Icons\" />
   </ItemGroup>
