@@ -41,7 +41,9 @@ namespace ManageDormitory.BusinessLayer {
                     boardingBill.total,
                     student.id,
                     student.name,
+                    student.school,
                     boardingBill.status,
+                    boardingBill.payment_date,
                     boardingBill.note
                 );
             }

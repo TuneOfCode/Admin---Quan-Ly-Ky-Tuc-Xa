@@ -181,34 +181,31 @@
   <metadata name="RoomStatus.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="CBRoom.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="STT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomArea.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomRange.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomType.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomMaxQuantity.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomPrice.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RoomStatus.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="btnExportExcel.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DwAACw8BkvkDpQAABM9JREFUSEutlVlMXGUUx2+i78ZHbdmGgYGhFDq1lRYKSKdQYBZmYIZSQFtwaUtp
+        SxdgNoa97DCsguHBRIMmkj7WBxGrL2pq4pPRR1NNLLIN+9b8Pee7dwYkUWzil9zch5l7fv/v9517rnTQ
+        SvN6XywZb0ywDt69pO+p8KV3X5lOaSv/U/n5+Vbu8NWXSz906W2jNVXGobsf5Qzc/DHTV7GW3vUuTrVd
+        xuv3L+G1llLomkqgPHLwso+7+grGar+wjt57Yhq5/SyzvxIZvVeR3nMFad3v4UznOzjdXi4AJ1vfwvHm
+        EhxrKv7vAOPIHeQOVeH84E1kUXF9X4UMoOIMSOl8G6fay5BE6U+0vCkAiY0XkdhQhITWYsS3FOFIcxG0
+        TYWIbbJD02hDdH0+ouiKbrAtSYaR28gZuiUAnJ4BbxCAi6eSmuQOGcB6GMB6uPjMzAxWVlbwbyvSa4Fk
+        GJYBWQM3cM53HWf7ru3q6SI9Hbt62D/rYUC824Y4dwHi6u2iWDB9Q4FIz0tVR4Dc4SpkD95C5kClAGT0
+        EkBJz3oYkBT0Xyr0JBDgiAKIdVmxtraGmEa7KM561F6rAETU5cmAoB6frIcBnD7gX+hpJT2K/6P1FzA7
+        O4u5uTnMz8+LiyH7V7jHDCmghwH5YzWoftCP/NFqUdw+VouJ7z5H1afdpGcXEF9fiDgPp89HjNsqANHO
+        PER5LCI9uw8CsgP++6/DQoX9q8v46pcfBGD658dYWPYjy1eJ44p/1sMALetx50NDihYWFgRA7TAj0pMn
+        3PMK85ggCT0EYD0ZdMDvfz2J7e1tjNF9a2sLA1OfCD0MSGxS/HsLRVFOzvfFxUX4/X4sLS1heXkZm5ub
+        AhDqDgD2+D9H99/mn4riv9M9lc7ib/4bLiDOaw+m5+RcXKR3mhDhMCHcYRTPh7iNkLIGZT1nqXB6r9ye
+        H3zzQPxh9NEkTt6n9iTAsWZqT8W/ts4m3GtcFkTTxcnVTjNUSvGwWoM49BCnARLrYQDr4f7X0/3J/B/y
+        DuaeilEh6yH/jaRHAezXwi/d6uqquLj4+vo6DtXmMEDR0yfPn5FHn4kzGKU7Q3xTE9C1kB4CsB4GxNYV
+        QEM74PRRrjxRXMV66ApzGBBCO9jY2NgFsB4GmGguLVIXfUndwy/X1E/fiy7S91aIA45X/MdQi8oAak2C
+        cGouHu40IpQUhRCED/qwIxdSUA8dMAPuTPbCROODAZaRe/j424e4MdEh9DBA6yX/BNirhZUEtHByLs67
+        FzvQK4A00pPaTcON+j+J3942envpgPf7jyX/Gg9NStbjtiDSZRbFw2kHobQDTs/JWfOrjmwZwHrSemg8
+        EOB0J80eAnD3MED2z+1ZJLcnAaJZDxVXkyKVyySSh7EeBlDnMGBnZwev1J6HJLenDEjh6SkAl0VxuT1l
+        wF49nP6ftHByLh4EZPhk/0JPFw03mp5BPa2kh/o/2J4ECOhRuzm9GRF0cfowl5LemYtDjhxR/LDL6JfO
+        dJa1J7eXPaTP4q/JHWXPkjpIDwE4vY79E+DoHv+shztHfA6fd6lq9C+d8F5M1XmLr+nqi8YTvIWP6c1d
+        FdOTPiwx1P8MUNN4UB75H5bN9oLWaUuMrTaX09zpj3LkTauqDTPKrwcsSfoL/9+pYaQHWG0AAAAASUVO
+        RK5CYII=
+</value>
+  </data>
 </root>

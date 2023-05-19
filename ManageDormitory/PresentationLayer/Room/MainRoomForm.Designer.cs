@@ -41,6 +41,7 @@
             this.RoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RoomStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbTitle = new System.Windows.Forms.Label();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.RoomDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -220,11 +221,26 @@
             this.lbTitle.Text = "Quản lý phòng ở";
             this.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportExcel.Location = new System.Drawing.Point(279, 135);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(135, 35);
+            this.btnExportExcel.TabIndex = 15;
+            this.btnExportExcel.Text = "Xuất file excel";
+            this.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // MainRoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.cbbField);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnDelete);
@@ -262,5 +278,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomMaxQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn RoomStatus;
+        private System.Windows.Forms.Button btnExportExcel;
     }
 }

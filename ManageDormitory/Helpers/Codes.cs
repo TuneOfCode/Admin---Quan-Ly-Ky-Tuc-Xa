@@ -26,7 +26,6 @@ namespace ManageDormitory {
             object[] values = new object[props.Count];
             foreach (T item in data) {
                 for (int i = 0; i < values.Length; i++) {
-                    values[0] = false;
                     values[i] = props[i].GetValue(item);
                 }
                 table.Rows.Add(values);
@@ -63,7 +62,7 @@ namespace ManageDormitory {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private static void checkAll_Click(object sender, EventArgs e) {
-            // var cell = dataGridView1.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
+            // var cell = dgv.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
             // do something even more stupid
             // cell.Style.BackColor = Color.Blue;
             MessageBox.Show("Chọn tất cả");
@@ -74,7 +73,7 @@ namespace ManageDormitory {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private static void getDetail_Click(object sender, EventArgs e) {
-            // var cell = dataGridView1.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
+            // var cell = dgv.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
             // do something even more stupid
             // cell.Style.BackColor = Color.Blue;
             MessageBox.Show("Chọn tất cả");
@@ -85,7 +84,7 @@ namespace ManageDormitory {
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private static void createNewBill_Click(object sender, EventArgs e) {
-            //var cell = dataGridView1.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
+            //var cell = dgv.Rows[mouseLocation.RowIndex].Cells[mouseLocation.ColumnIndex];
             //// do something stupid
             //cell.Style.BackColor = Color.Red;
             MessageBox.Show("Tạo hóa đơn cho sinh viên này");
@@ -127,6 +126,100 @@ namespace ManageDormitory {
                 return int.Parse(s);
             } catch {
                 return null;
+            }
+        }
+        /// <summary>
+        /// Xuất ra file excel
+        /// </summary>
+        /// <param name="dgv"></param>
+        /// <param name="fileName"></param>
+        /// <param name="worksheetName"></param>
+        public static void ExportExcel(DataGridView dgv, string fileName, string worksheetName) {
+            // Định dạng tên file
+            long currentMilliseconds = DateTime.Now.Ticks;
+            string fileNameFormat = $"{currentMilliseconds}_{fileName}";
+            // tạo SaveFileDialog để lưu file excel
+            string filePath = "";
+            SaveFileDialog dialog = new SaveFileDialog();
+
+            // chỉ lọc ra các file có định dạng Excel
+            dialog.Filter = "Excel | *.xlsx | Excel 2003 | *.xls";
+            dialog.FileName = fileNameFormat;
+
+            // Nếu mở file và chọn nơi lưu file thành công sẽ lưu đường dẫn lại dùng
+            if (dialog.ShowDialog() == DialogResult.OK) {
+                filePath = dialog.FileName;
+            }
+
+            // nếu đường dẫn null hoặc rỗng thì báo không hợp lệ và return hàm
+            if (string.IsNullOrEmpty(filePath)) {
+                MessageBox.Show(
+                    "Đường dẫn báo cáo không hợp lệ",
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+                return;
+            }
+            //khai báo thư viện hỗ trợ Microsoft.Office.Interop.Excel
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+            try {
+                //Tạo đối tượng COM.
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                //excel.Visible = false;
+                //excel.DisplayAlerts = false;
+                //tạo mới một Workbooks bằng phương thức add()
+                workbook = excel.Workbooks.Add(Type.Missing);
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                //đặt tên cho sheet
+                worksheet.Name = worksheetName;
+
+                // export header trong DataGridView
+                for (int i = 0; i < dgv.ColumnCount; i++) {
+                    worksheet.Cells[1, i + 1] = dgv.Columns[i].HeaderText;
+                    worksheet.Rows.AutoFit();
+                    worksheet.Columns.AutoFit();
+                }
+                if (dgv.RowCount == 0) {
+                    MessageBox.Show(
+                        "Không có dữ liệu để xuất file",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
+                // export nội dung trong DataGridView
+                for (int i = 0; i < dgv.RowCount; i++) {
+                    for (int j = 0; j < dgv.ColumnCount; j++) {
+                        worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Rows.AutoFit();
+                        worksheet.Columns.AutoFit();
+                    }
+                }
+                // sử dụng phương thức SaveAs() để lưu workbook với filename
+                workbook.SaveAs(filePath);
+                //đóng workbook
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show(
+                    "Xuất dữ liệu ra Excel thành công!",
+                    "Thông báo",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            } catch (Exception ex) {
+                MessageBox.Show(
+                    ex.Message,
+                    "Lỗi",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            } finally {
+                workbook = null;
+                worksheet = null;
             }
         }
     }

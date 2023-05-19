@@ -11,6 +11,7 @@
           <ScalarProperty Name="student_id" ColumnName="student_id" />
           <ScalarProperty Name="note" ColumnName="note" />
           <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

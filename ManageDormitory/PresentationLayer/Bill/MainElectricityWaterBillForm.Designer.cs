@@ -27,6 +27,9 @@
             this.lbTitle = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.ElectricityWaterBillDGV = new System.Windows.Forms.DataGridView();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.cbbField = new System.Windows.Forms.ComboBox();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.CBBoardingBill = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ElecWaterBillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -35,11 +38,10 @@
             this.ElecWaterBillTotalElec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ElecWaterBillTotalWater = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ElecWaterTotalPayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ElecWaterBillStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ElecWaterBillDatePayment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ElecWaterBillNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAccept = new System.Windows.Forms.Button();
-            this.cbbField = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.ElectricityWaterBillDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,8 +80,9 @@
             this.ElecWaterBillTotalElec,
             this.ElecWaterBillTotalWater,
             this.ElecWaterTotalPayment,
-            this.RoomID,
+            this.RID,
             this.ElecWaterBillStatus,
+            this.ElecWaterBillDatePayment,
             this.ElecWaterBillNote});
             this.ElectricityWaterBillDGV.Location = new System.Drawing.Point(12, 186);
             this.ElectricityWaterBillDGV.Name = "ElectricityWaterBillDGV";
@@ -89,6 +92,44 @@
             this.ElectricityWaterBillDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElectricityWaterBillDGV_CellClick);
             this.ElectricityWaterBillDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElectricityWaterBillDGV_CellValueChanged);
             this.ElectricityWaterBillDGV.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ElectricityWaterBillDGV_MouseClick);
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Image = ((System.Drawing.Image)(resources.GetObject("btnAccept.Image")));
+            this.btnAccept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccept.Location = new System.Drawing.Point(12, 137);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(167, 35);
+            this.btnAccept.TabIndex = 28;
+            this.btnAccept.Text = "Xác nhận thanh toán ";
+            this.btnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // cbbField
+            // 
+            this.cbbField.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbbField.FormattingEnabled = true;
+            this.cbbField.Location = new System.Drawing.Point(420, 143);
+            this.cbbField.Name = "cbbField";
+            this.cbbField.Size = new System.Drawing.Size(121, 24);
+            this.cbbField.TabIndex = 25;
+            this.cbbField.SelectedIndexChanged += new System.EventHandler(this.cbbField_SelectedIndexChanged);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportExcel.Location = new System.Drawing.Point(185, 137);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(135, 35);
+            this.btnExportExcel.TabIndex = 29;
+            this.btnExportExcel.Text = "Xuất file excel";
+            this.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // CBBoardingBill
             // 
@@ -116,6 +157,7 @@
             this.ElecWaterBillID.Name = "ElecWaterBillID";
             this.ElecWaterBillID.ReadOnly = true;
             this.ElecWaterBillID.Visible = false;
+            this.ElecWaterBillID.Width = 90;
             // 
             // ElecWaterBillName
             // 
@@ -123,7 +165,7 @@
             this.ElecWaterBillName.HeaderText = "Tên hoá đơn";
             this.ElecWaterBillName.Name = "ElecWaterBillName";
             this.ElecWaterBillName.ReadOnly = true;
-            this.ElecWaterBillName.Width = 87;
+            this.ElecWaterBillName.Width = 94;
             // 
             // ElecWaterBillDateFounded
             // 
@@ -131,7 +173,7 @@
             this.ElecWaterBillDateFounded.HeaderText = "Ngày lập";
             this.ElecWaterBillDateFounded.Name = "ElecWaterBillDateFounded";
             this.ElecWaterBillDateFounded.ReadOnly = true;
-            this.ElecWaterBillDateFounded.Width = 69;
+            this.ElecWaterBillDateFounded.Width = 74;
             // 
             // ElecWaterBillTotalElec
             // 
@@ -139,7 +181,7 @@
             this.ElecWaterBillTotalElec.HeaderText = "Tổng tiền điện";
             this.ElecWaterBillTotalElec.Name = "ElecWaterBillTotalElec";
             this.ElecWaterBillTotalElec.ReadOnly = true;
-            this.ElecWaterBillTotalElec.Width = 74;
+            this.ElecWaterBillTotalElec.Width = 101;
             // 
             // ElecWaterBillTotalWater
             // 
@@ -155,13 +197,11 @@
             this.ElecWaterTotalPayment.ReadOnly = true;
             this.ElecWaterTotalPayment.Width = 71;
             // 
-            // RoomID
+            // RID
             // 
-            this.RoomID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.RoomID.HeaderText = "Số phòng";
-            this.RoomID.Name = "RoomID";
-            this.RoomID.ReadOnly = true;
-            this.RoomID.Width = 72;
+            this.RID.HeaderText = "Số Phòng";
+            this.RID.Name = "RID";
+            this.RID.ReadOnly = true;
             // 
             // ElecWaterBillStatus
             // 
@@ -171,6 +211,12 @@
             this.ElecWaterBillStatus.ReadOnly = true;
             this.ElecWaterBillStatus.Width = 74;
             // 
+            // ElecWaterBillDatePayment
+            // 
+            this.ElecWaterBillDatePayment.HeaderText = "Ngày nộp tiền";
+            this.ElecWaterBillDatePayment.Name = "ElecWaterBillDatePayment";
+            this.ElecWaterBillDatePayment.ReadOnly = true;
+            // 
             // ElecWaterBillNote
             // 
             this.ElecWaterBillNote.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -179,35 +225,12 @@
             this.ElecWaterBillNote.ReadOnly = true;
             this.ElecWaterBillNote.Width = 64;
             // 
-            // btnAccept
-            // 
-            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Image = ((System.Drawing.Image)(resources.GetObject("btnAccept.Image")));
-            this.btnAccept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccept.Location = new System.Drawing.Point(12, 137);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(167, 35);
-            this.btnAccept.TabIndex = 28;
-            this.btnAccept.Text = "Xác nhận thanh toán ";
-            this.btnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
-            // cbbField
-            // 
-            this.cbbField.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbbField.FormattingEnabled = true;
-            this.cbbField.Location = new System.Drawing.Point(420, 143);
-            this.cbbField.Name = "cbbField";
-            this.cbbField.Size = new System.Drawing.Size(121, 24);
-            this.cbbField.TabIndex = 25;
-            this.cbbField.SelectedIndexChanged += new System.EventHandler(this.cbbField_SelectedIndexChanged);
-            // 
             // MainElectricityWaterBillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ElectricityWaterBillDGV);
@@ -232,6 +255,7 @@
         private System.Windows.Forms.DataGridView ElectricityWaterBillDGV;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.ComboBox cbbField;
+        private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CBBoardingBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterBillID;
@@ -240,8 +264,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterBillTotalElec;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterBillTotalWater;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterTotalPayment;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterBillStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterBillDatePayment;
         private System.Windows.Forms.DataGridViewTextBoxColumn ElecWaterBillNote;
     }
 }

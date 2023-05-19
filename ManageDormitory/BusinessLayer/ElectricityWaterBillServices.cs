@@ -42,6 +42,7 @@ namespace ManageDormitory.BusinessLayer {
                     electricityWaterBill.into_money,
                     electricityWaterBill.room_id,
                     electricityWaterBill.status,
+                    electricityWaterBill.payment_date,
                     electricityWaterBill.note
                 );
             }
@@ -103,7 +104,7 @@ namespace ManageDormitory.BusinessLayer {
         /// <param name="data"></param>
         /// <returns></returns>
         public static int UpdateElectricityWaterBill(ElectricityWaterBill data) {
-            return elecWaterDAL.Update(elecWaterBill);
+            return elecWaterDAL.Update(data);
         }
     }
 }

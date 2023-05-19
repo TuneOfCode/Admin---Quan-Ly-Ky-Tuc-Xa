@@ -11,6 +11,7 @@
     <Property Name="student_id" Type="nvarchar" MaxLength="10" />
     <Property Name="note" Type="nvarchar" MaxLength="300" />
     <Property Name="status" Type="nvarchar" MaxLength="500" />
+    <Property Name="payment_date" Type="datetime" />
   </EntityType>
   <EntityType Name="ElectricityWaterBill">
     <Key>

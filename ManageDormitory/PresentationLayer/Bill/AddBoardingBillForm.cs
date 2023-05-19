@@ -19,7 +19,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
                 = txtStudentIndustry.Enabled
                 = txtStudentCourse.Enabled
                 = false;
-            txtBoardingBillName.Text = $"[{studentID}] Hoá đơn nội trú tháng ... năm ...";
+            txtBoardingBillName.Text = $"[{studentID}] Hoá đơn nội trú kỳ ... năm ...";
             txtBoardingBillTotal.Text = $"300000";
         }
         /// <summary>

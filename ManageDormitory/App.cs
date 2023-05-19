@@ -1,4 +1,4 @@
-﻿using ManageDormitory.PresentationLayer;
+﻿using ManageDormitory.PresentationLayer.Auth;
 using System;
 using System.Windows.Forms;
 
@@ -11,7 +11,7 @@ namespace ManageDormitory {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Main());
+            Application.Run(new LoginForm());
         }
     }
 }

@@ -42,3 +42,4 @@ E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLa
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.AddRoomForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddElectricityWaterBillForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainElectricityWaterBillForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.ResolveComReference.cache

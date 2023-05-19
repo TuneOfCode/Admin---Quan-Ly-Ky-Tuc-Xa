@@ -138,6 +138,16 @@ namespace ManageDormitory.PresentationLayer.Room {
             if (RoomDGV.CurrentRow != null) {
                 roomID = RoomDGV["RoomID", RoomDGV.CurrentRow.Index].Value.ToString();
             }
+            int currentQuantity = StudentServices.ListOfStudents("Student", "room_id", roomID).Count();
+            if (currentQuantity == 0) {
+                MessageBox.Show(
+                  $"Không thể tạo hoá đơn vì phòng {roomID} không có sinh viên ở",
+                  "Lỗi",
+                  MessageBoxButtons.OK,
+                  MessageBoxIcon.Error
+                );
+                return;
+            }
             MessageBox.Show($"Tạo hóa đơn cho phòng: {roomID}");
             var room = RoomServices.GetRoom(roomID);
             new AddElectricityWaterBillForm(room).Show();
@@ -229,6 +239,7 @@ namespace ManageDormitory.PresentationLayer.Room {
         /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e) {
             new AddRoomForm(RoomDGV).Show();
+            roomIDs = new List<string>();
             btnUpdate.Enabled = btnDelete.Enabled = false;
         }
         /// <summary>
@@ -239,6 +250,7 @@ namespace ManageDormitory.PresentationLayer.Room {
         private void btnUpdate_Click(object sender, EventArgs e) {
             var room = RoomServices.GetRoom(roomIDs[0]);
             new AddRoomForm(RoomDGV, room).Show();
+            roomIDs = new List<string>();
             btnUpdate.Enabled = btnDelete.Enabled = false;
         }
         /// <summary>
@@ -288,6 +300,18 @@ namespace ManageDormitory.PresentationLayer.Room {
                   MessageBoxIcon.Error
                 );
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportExcel_Click(object sender, EventArgs e) {
+            string fileName = "Quản lý phòng ở";
+            string workSheetName = "Quản lý phòng ở";
+            DataGridView roomDGV = RoomDGV;
+            roomDGV.Columns.RemoveAt(0);
+            Codes.ExportExcel(roomDGV, fileName, workSheetName);
         }
     }
 }

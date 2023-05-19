@@ -7,9 +7,10 @@ using System.Windows.Forms;
 
 namespace ManageDormitory.PresentationLayer {
     public partial class Main : Form {
-        public Main() {
+        public Main(bool isShow) {
             InitializeComponent();
-            ToogleMenuItem(Temp.IsShow);
+            // ToogleMenuItem(Temp.IsShow);
+            ToogleMenuItem(isShow);
         }
         /// <summary>
         /// Ẩn hiện phần tử trong menu

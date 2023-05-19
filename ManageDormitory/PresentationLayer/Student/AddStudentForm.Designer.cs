@@ -54,6 +54,7 @@
             this.lbStudentID = new System.Windows.Forms.Label();
             this.pbStudentAvatar = new System.Windows.Forms.PictureBox();
             this.gbRoomInfor = new System.Windows.Forms.GroupBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.cbbRoomID = new System.Windows.Forms.ComboBox();
             this.cbbRoomArea = new System.Windows.Forms.ComboBox();
             this.cbbRoomRange = new System.Windows.Forms.ComboBox();
@@ -72,7 +73,6 @@
             this.txtRoomMaxQuantity = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
             this.gbStudentInfor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbStudentAvatar)).BeginInit();
             this.gbRoomInfor.SuspendLayout();
@@ -224,6 +224,7 @@
             // txtStudentPhone
             // 
             this.txtStudentPhone.Location = new System.Drawing.Point(145, 183);
+            this.txtStudentPhone.MaxLength = 10;
             this.txtStudentPhone.Name = "txtStudentPhone";
             this.txtStudentPhone.Size = new System.Drawing.Size(234, 23);
             this.txtStudentPhone.TabIndex = 10;
@@ -387,6 +388,17 @@
             this.gbRoomInfor.TabIndex = 1;
             this.gbRoomInfor.TabStop = false;
             this.gbRoomInfor.Text = "Thông tin phòng ở của sinh viên";
+            // 
+            // btnReset
+            // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Location = new System.Drawing.Point(693, 11);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(52, 18);
+            this.btnReset.TabIndex = 18;
+            this.btnReset.Text = "Đặt lại";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // cbbRoomID
             // 
@@ -565,17 +577,6 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReset.Location = new System.Drawing.Point(693, 11);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(52, 18);
-            this.btnReset.TabIndex = 18;
-            this.btnReset.Text = "Đặt lại";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // AddStudentForm
             // 

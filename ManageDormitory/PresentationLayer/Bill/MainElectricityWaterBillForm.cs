@@ -236,6 +236,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
                     electricityWaterBillIDs[i]
                 );
                 elecWaterBill.status = "Đã thanh toán";
+                elecWaterBill.payment_date = DateTime.Now;
                 isAcceptPayment = ElectricityWaterBillServices.UpdateElectricityWaterBill(elecWaterBill);
                 if (isAcceptPayment == 0) {
                     break;
@@ -251,12 +252,24 @@ namespace ManageDormitory.PresentationLayer.Bill {
                 LoadData();
             } else {
                 MessageBox.Show(
-                  "Có lỗi xác nhận!",
+                  "Có một vài hoá đơn đã được thanh toán trước đó!",
                   "Lỗi",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Error
                 );
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportExcel_Click(object sender, EventArgs e) {
+            string fileName = "Quản lý hoá đơn tiền điện";
+            string workSheetName = "Quản lý hoá đơn tiền điện";
+            DataGridView billDGV = ElectricityWaterBillDGV;
+            billDGV.Columns.RemoveAt(0);
+            Codes.ExportExcel(billDGV, fileName, workSheetName);
         }
     }
 }

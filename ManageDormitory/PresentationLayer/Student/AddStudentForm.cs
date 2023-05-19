@@ -140,6 +140,20 @@ namespace ManageDormitory.PresentationLayer.Student {
                 MessageBoxIcon.Information
             );
                 isSaved = true;
+                int currentQuantity = StudentServices.Count("Student", "room_id", cbbRoomID.Text);
+                var room = RoomServices.GetRoom(cbbRoomID.Text);
+                if (currentQuantity == room.quantity) {
+                    string[] data = {
+                        room.area,
+                        room.range,
+                        room.id,
+                        room.type,
+                        room.quantity.ToString(),
+                        room.price.ToString(),
+                        "Đã đầy"
+                    };
+                    RoomServices.UpdateRoom(data);
+                }
                 Close();
             } else {
                 MessageBox.Show(

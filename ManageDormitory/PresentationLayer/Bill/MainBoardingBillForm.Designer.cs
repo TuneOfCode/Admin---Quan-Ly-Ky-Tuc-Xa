@@ -28,17 +28,20 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.BoardingBillDGV = new System.Windows.Forms.DataGridView();
             this.cbbField = new System.Windows.Forms.ComboBox();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.CBBoardingBill = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoardingBillID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoardingBillName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoardingBillDateFounded = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RoomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BoardingBillTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoardingBillStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BoardingBillPaymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BoardingBillNote = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAccept = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.BoardingBillDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,10 +77,12 @@
             this.BoardingBillID,
             this.BoardingBillName,
             this.BoardingBillDateFounded,
-            this.RoomType,
-            this.StudentID,
+            this.BoardingBillTotal,
+            this.SID,
             this.StudentName,
+            this.StudentSchool,
             this.BoardingBillStatus,
+            this.BoardingBillPaymentDate,
             this.BoardingBillNote});
             this.BoardingBillDGV.Location = new System.Drawing.Point(12, 185);
             this.BoardingBillDGV.Name = "BoardingBillDGV";
@@ -97,6 +102,34 @@
             this.cbbField.Size = new System.Drawing.Size(121, 24);
             this.cbbField.TabIndex = 19;
             this.cbbField.SelectedIndexChanged += new System.EventHandler(this.cbbField_SelectedIndexChanged);
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.Image = ((System.Drawing.Image)(resources.GetObject("btnAccept.Image")));
+            this.btnAccept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccept.Location = new System.Drawing.Point(12, 136);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(167, 35);
+            this.btnAccept.TabIndex = 23;
+            this.btnAccept.Text = "Xác nhận thanh toán ";
+            this.btnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportExcel.Location = new System.Drawing.Point(185, 136);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(135, 35);
+            this.btnExportExcel.TabIndex = 24;
+            this.btnExportExcel.Text = "Xuất file excel";
+            this.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // CBBoardingBill
             // 
@@ -132,7 +165,7 @@
             this.BoardingBillName.HeaderText = "Tên hoá đơn";
             this.BoardingBillName.Name = "BoardingBillName";
             this.BoardingBillName.ReadOnly = true;
-            this.BoardingBillName.Width = 87;
+            this.BoardingBillName.Width = 94;
             // 
             // BoardingBillDateFounded
             // 
@@ -140,23 +173,21 @@
             this.BoardingBillDateFounded.HeaderText = "Ngày lập";
             this.BoardingBillDateFounded.Name = "BoardingBillDateFounded";
             this.BoardingBillDateFounded.ReadOnly = true;
-            this.BoardingBillDateFounded.Width = 69;
+            this.BoardingBillDateFounded.Width = 74;
             // 
-            // RoomType
+            // BoardingBillTotal
             // 
-            this.RoomType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.RoomType.HeaderText = "Tổng số tiền trả";
-            this.RoomType.Name = "RoomType";
-            this.RoomType.ReadOnly = true;
-            this.RoomType.Width = 87;
+            this.BoardingBillTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.BoardingBillTotal.HeaderText = "Tổng số tiền trả";
+            this.BoardingBillTotal.Name = "BoardingBillTotal";
+            this.BoardingBillTotal.ReadOnly = true;
+            this.BoardingBillTotal.Width = 87;
             // 
-            // StudentID
+            // SID
             // 
-            this.StudentID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.StudentID.HeaderText = "Mã sinh viên";
-            this.StudentID.Name = "StudentID";
-            this.StudentID.ReadOnly = true;
-            this.StudentID.Width = 85;
+            this.SID.HeaderText = "Mã sinh viên";
+            this.SID.Name = "SID";
+            this.SID.ReadOnly = true;
             // 
             // StudentName
             // 
@@ -166,6 +197,13 @@
             this.StudentName.ReadOnly = true;
             this.StudentName.Width = 96;
             // 
+            // StudentSchool
+            // 
+            this.StudentSchool.HeaderText = "Trường đại học";
+            this.StudentSchool.Name = "StudentSchool";
+            this.StudentSchool.ReadOnly = true;
+            this.StudentSchool.Visible = false;
+            // 
             // BoardingBillStatus
             // 
             this.BoardingBillStatus.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -173,6 +211,12 @@
             this.BoardingBillStatus.Name = "BoardingBillStatus";
             this.BoardingBillStatus.ReadOnly = true;
             this.BoardingBillStatus.Width = 74;
+            // 
+            // BoardingBillPaymentDate
+            // 
+            this.BoardingBillPaymentDate.HeaderText = "Ngày nộp tiền";
+            this.BoardingBillPaymentDate.Name = "BoardingBillPaymentDate";
+            this.BoardingBillPaymentDate.ReadOnly = true;
             // 
             // BoardingBillNote
             // 
@@ -182,25 +226,12 @@
             this.BoardingBillNote.ReadOnly = true;
             this.BoardingBillNote.Width = 64;
             // 
-            // btnAccept
-            // 
-            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.Image = ((System.Drawing.Image)(resources.GetObject("btnAccept.Image")));
-            this.btnAccept.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAccept.Location = new System.Drawing.Point(12, 136);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(167, 35);
-            this.btnAccept.TabIndex = 23;
-            this.btnAccept.Text = "Xác nhận thanh toán ";
-            this.btnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
-            // 
             // MainBoardingBillForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.lbTitle);
             this.Controls.Add(this.txtSearch);
@@ -224,16 +255,19 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView BoardingBillDGV;
         private System.Windows.Forms.ComboBox cbbField;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CBBoardingBill;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillID;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillDateFounded;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RoomType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentSchool;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillPaymentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn BoardingBillNote;
-        private System.Windows.Forms.Button btnAccept;
     }
 }

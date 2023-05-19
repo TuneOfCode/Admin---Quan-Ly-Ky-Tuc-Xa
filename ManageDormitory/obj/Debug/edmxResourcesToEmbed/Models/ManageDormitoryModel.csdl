@@ -11,6 +11,7 @@
     <Property Name="student_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
     <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="payment_date" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Student" Relationship="Self.FK_BoardingBill_Student" FromRole="BoardingBill" ToRole="Student" />
   </EntityType>
   <EntityType Name="ElectricityWaterBill">

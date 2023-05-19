@@ -93,14 +93,14 @@
             // ManageStudentTSMI
             // 
             this.ManageStudentTSMI.Name = "ManageStudentTSMI";
-            this.ManageStudentTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageStudentTSMI.Size = new System.Drawing.Size(122, 22);
             this.ManageStudentTSMI.Text = "Sinh viên";
             this.ManageStudentTSMI.Click += new System.EventHandler(this.ManageStudentTSMI_Click);
             // 
             // ManageRoomTSMI
             // 
             this.ManageRoomTSMI.Name = "ManageRoomTSMI";
-            this.ManageRoomTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageRoomTSMI.Size = new System.Drawing.Size(122, 22);
             this.ManageRoomTSMI.Text = "Phòng ở";
             this.ManageRoomTSMI.Click += new System.EventHandler(this.ManageRoomTSMI_Click);
             // 
@@ -110,20 +110,20 @@
             this.ManageBoardingBillTSMI,
             this.ManageElecWaterBillTSMI});
             this.BillTSMI.Name = "BillTSMI";
-            this.BillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.BillTSMI.Size = new System.Drawing.Size(122, 22);
             this.BillTSMI.Text = "Hoá đơn";
             // 
             // ManageBoardingBillTSMI
             // 
             this.ManageBoardingBillTSMI.Name = "ManageBoardingBillTSMI";
-            this.ManageBoardingBillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageBoardingBillTSMI.Size = new System.Drawing.Size(128, 22);
             this.ManageBoardingBillTSMI.Text = "Nội trú";
             this.ManageBoardingBillTSMI.Click += new System.EventHandler(this.ManageBoardingBillTSMI_Click);
             // 
             // ManageElecWaterBillTSMI
             // 
             this.ManageElecWaterBillTSMI.Name = "ManageElecWaterBillTSMI";
-            this.ManageElecWaterBillTSMI.Size = new System.Drawing.Size(180, 22);
+            this.ManageElecWaterBillTSMI.Size = new System.Drawing.Size(128, 22);
             this.ManageElecWaterBillTSMI.Text = "Điện nước";
             this.ManageElecWaterBillTSMI.Click += new System.EventHandler(this.ManageElecWaterBillTSMI_Click);
             // 
@@ -134,19 +134,19 @@
             this.StatisticRoomTSMI,
             this.hoáĐơnToolStripMenuItem});
             this.StatisticTSM.Name = "StatisticTSM";
-            this.StatisticTSM.Size = new System.Drawing.Size(68, 20);
-            this.StatisticTSM.Text = "Thống kê";
+            this.StatisticTSM.Size = new System.Drawing.Size(66, 20);
+            this.StatisticTSM.Text = "Xuất bản";
             // 
             // StatisticStudentTSMI
             // 
             this.StatisticStudentTSMI.Name = "StatisticStudentTSMI";
-            this.StatisticStudentTSMI.Size = new System.Drawing.Size(122, 22);
+            this.StatisticStudentTSMI.Size = new System.Drawing.Size(180, 22);
             this.StatisticStudentTSMI.Text = "Sinh viên";
             // 
             // StatisticRoomTSMI
             // 
             this.StatisticRoomTSMI.Name = "StatisticRoomTSMI";
-            this.StatisticRoomTSMI.Size = new System.Drawing.Size(122, 22);
+            this.StatisticRoomTSMI.Size = new System.Drawing.Size(180, 22);
             this.StatisticRoomTSMI.Text = "Phòng ở";
             // 
             // hoáĐơnToolStripMenuItem
@@ -155,7 +155,7 @@
             this.StatisticBoardingBillTSMI,
             this.StatisticElecWaterTSMI});
             this.hoáĐơnToolStripMenuItem.Name = "hoáĐơnToolStripMenuItem";
-            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.hoáĐơnToolStripMenuItem.Text = "Hoá đơn";
             // 
             // StatisticBoardingBillTSMI

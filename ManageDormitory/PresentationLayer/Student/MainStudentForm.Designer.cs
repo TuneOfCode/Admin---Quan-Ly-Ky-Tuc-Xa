@@ -32,14 +32,23 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.cbbField = new System.Windows.Forms.ComboBox();
+            this.btnExportExcel = new System.Windows.Forms.Button();
             this.CBStudent = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentBirthdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StudentPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentCMND = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentDateIssue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentPlaceIssue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentIndustry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentCourse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentRoomID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StudentContractSigningDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.StudentDGV)).BeginInit();
             this.SuspendLayout();
@@ -67,8 +76,16 @@
             this.StudentName,
             this.StudentGender,
             this.StudentBirthdate,
-            this.StudentPhone,
+            this.StudentAddress,
+            this.StudentCMND,
+            this.StudentDateIssue,
+            this.StudentPlaceIssue,
             this.StudentSchool,
+            this.StudentIndustry,
+            this.StudentCourse,
+            this.StudentPhone,
+            this.StudentEmail,
+            this.StudentRoomID,
             this.StudentContractSigningDate});
             this.StudentDGV.Location = new System.Drawing.Point(12, 183);
             this.StudentDGV.Name = "StudentDGV";
@@ -153,6 +170,20 @@
             this.cbbField.TabIndex = 4;
             this.cbbField.SelectedIndexChanged += new System.EventHandler(this.cbbField_SelectedIndexChanged);
             // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.Image")));
+            this.btnExportExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportExcel.Location = new System.Drawing.Point(279, 133);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(135, 35);
+            this.btnExportExcel.TabIndex = 3;
+            this.btnExportExcel.Text = "Xuất file excel";
+            this.btnExportExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportExcel.UseVisualStyleBackColor = true;
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
+            // 
             // CBStudent
             // 
             this.CBStudent.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -199,11 +230,33 @@
             this.StudentBirthdate.ReadOnly = true;
             this.StudentBirthdate.Width = 110;
             // 
-            // StudentPhone
+            // StudentAddress
             // 
-            this.StudentPhone.HeaderText = "Số điện thoại";
-            this.StudentPhone.Name = "StudentPhone";
-            this.StudentPhone.ReadOnly = true;
+            this.StudentAddress.HeaderText = "Địa chỉ thường trú";
+            this.StudentAddress.Name = "StudentAddress";
+            this.StudentAddress.ReadOnly = true;
+            this.StudentAddress.Visible = false;
+            // 
+            // StudentCMND
+            // 
+            this.StudentCMND.HeaderText = "CMND/CCCD";
+            this.StudentCMND.Name = "StudentCMND";
+            this.StudentCMND.ReadOnly = true;
+            this.StudentCMND.Visible = false;
+            // 
+            // StudentDateIssue
+            // 
+            this.StudentDateIssue.HeaderText = "Ngày cấp";
+            this.StudentDateIssue.Name = "StudentDateIssue";
+            this.StudentDateIssue.ReadOnly = true;
+            this.StudentDateIssue.Visible = false;
+            // 
+            // StudentPlaceIssue
+            // 
+            this.StudentPlaceIssue.HeaderText = "Nơi cấp";
+            this.StudentPlaceIssue.Name = "StudentPlaceIssue";
+            this.StudentPlaceIssue.ReadOnly = true;
+            this.StudentPlaceIssue.Visible = false;
             // 
             // StudentSchool
             // 
@@ -211,6 +264,40 @@
             this.StudentSchool.Name = "StudentSchool";
             this.StudentSchool.ReadOnly = true;
             this.StudentSchool.Width = 140;
+            // 
+            // StudentIndustry
+            // 
+            this.StudentIndustry.HeaderText = "Ngành học";
+            this.StudentIndustry.Name = "StudentIndustry";
+            this.StudentIndustry.ReadOnly = true;
+            this.StudentIndustry.Visible = false;
+            // 
+            // StudentCourse
+            // 
+            this.StudentCourse.HeaderText = "Khoá học";
+            this.StudentCourse.Name = "StudentCourse";
+            this.StudentCourse.ReadOnly = true;
+            this.StudentCourse.Visible = false;
+            // 
+            // StudentPhone
+            // 
+            this.StudentPhone.HeaderText = "Số điện thoại";
+            this.StudentPhone.Name = "StudentPhone";
+            this.StudentPhone.ReadOnly = true;
+            this.StudentPhone.Visible = false;
+            // 
+            // StudentEmail
+            // 
+            this.StudentEmail.HeaderText = "Email";
+            this.StudentEmail.Name = "StudentEmail";
+            this.StudentEmail.ReadOnly = true;
+            this.StudentEmail.Visible = false;
+            // 
+            // StudentRoomID
+            // 
+            this.StudentRoomID.HeaderText = "Phòng đang ở";
+            this.StudentRoomID.Name = "StudentRoomID";
+            this.StudentRoomID.ReadOnly = true;
             // 
             // StudentContractSigningDate
             // 
@@ -227,6 +314,7 @@
             this.Controls.Add(this.cbbField);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnExportExcel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnCreate);
@@ -254,14 +342,23 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ComboBox cbbField;
+        private System.Windows.Forms.Button btnExportExcel;
         private System.Windows.Forms.DataGridViewCheckBoxColumn CBStudent;
         private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentName;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentGender;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentBirthdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentCMND;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentDateIssue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPlaceIssue;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentSchool;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentIndustry;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentCourse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentRoomID;
         private System.Windows.Forms.DataGridViewTextBoxColumn StudentContractSigningDate;
     }
 }

@@ -236,6 +236,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
                     boardingBillIDs[i]
                 );
                 boardingBill.status = "Đã thanh toán";
+                boardingBill.payment_date = DateTime.Now;
                 isAcceptPayment = BoardingBillServices.UpdateBoardingBill(boardingBill);
                 if (isAcceptPayment == 0) {
                     break;
@@ -251,12 +252,24 @@ namespace ManageDormitory.PresentationLayer.Bill {
                 LoadData();
             } else {
                 MessageBox.Show(
-                  "Có lỗi khi xác nhận!",
+                  "Có một vài hoá đơn đã được thanh toán trước đó!",
                   "Lỗi",
                   MessageBoxButtons.OK,
                   MessageBoxIcon.Error
                 );
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnExportExcel_Click(object sender, EventArgs e) {
+            string fileName = "Quản lý hoá đơn nội trú";
+            string workSheetName = "Quản lý hoá đơn nội trú";
+            DataGridView billDGV = BoardingBillDGV;
+            billDGV.Columns.RemoveAt(0);
+            Codes.ExportExcel(billDGV, fileName, workSheetName);
         }
     }
 }

@@ -16,6 +16,7 @@
           <Property Name="student_id" Type="nvarchar" MaxLength="10" />
           <Property Name="note" Type="nvarchar" MaxLength="300" />
           <Property Name="status" Type="nvarchar" MaxLength="500" />
+          <Property Name="payment_date" Type="datetime" />
         </EntityType>
         <EntityType Name="ElectricityWaterBill">
           <Key>
@@ -153,6 +154,7 @@
           <Property Name="student_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="payment_date" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Student" Relationship="Self.FK_BoardingBill_Student" FromRole="BoardingBill" ToRole="Student" />
         </EntityType>
         <EntityType Name="ElectricityWaterBill">
@@ -296,6 +298,7 @@
                 <ScalarProperty Name="student_id" ColumnName="student_id" />
                 <ScalarProperty Name="note" ColumnName="note" />
                 <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="payment_date" ColumnName="payment_date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

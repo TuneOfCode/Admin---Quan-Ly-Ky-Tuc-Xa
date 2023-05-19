@@ -37,9 +37,17 @@ namespace ManageDormitory.BusinessLayer {
                     student.name,
                     student.gender ? "nam" : "nữ",
                     student.birthdate.ToString(FORMAT_DATETIME),
-                    student.phone,
+                    student.address,
+                    student.citizen_identification,
+                    student.date_issue,
+                    student.place_issue,
                     student.school,
-                    student.contract_signing_date?.ToString(FORMAT_DATETIME)
+                    student.industry,
+                    student.course,
+                    student.phone,
+                    student.email,
+                    student.room_id,
+                    student.contract_signing_date
                 ); ;
             }
         }

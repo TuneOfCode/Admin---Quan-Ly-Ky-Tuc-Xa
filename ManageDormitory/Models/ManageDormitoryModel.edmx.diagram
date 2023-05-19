@@ -4,8 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0e965a9d9fa84ec8a7063b7e2c2eff3b" Name="Diagram1">
-        <EntityTypeShape EntityType="ManageDormitoryModel.BoardingBill" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
+      <Diagram DiagramId="2e73961e0d5845469c4d3d5f8aa19d40" Name="Diagram1" ZoomLevel="96">
+        <EntityTypeShape EntityType="ManageDormitoryModel.BoardingBill" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ManageDormitoryModel.ElectricityWaterBill" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ManageDormitoryModel.Room" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ManageDormitoryModel.Student" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
