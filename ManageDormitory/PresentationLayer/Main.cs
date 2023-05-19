@@ -1,4 +1,5 @@
-﻿using ManageDormitory.PresentationLayer.Auth;
+﻿using ManageDormitory.PresentationLayer.About;
+using ManageDormitory.PresentationLayer.Auth;
 using ManageDormitory.PresentationLayer.Bill;
 using ManageDormitory.PresentationLayer.Room;
 using ManageDormitory.PresentationLayer.Student;
@@ -17,7 +18,8 @@ namespace ManageDormitory.PresentationLayer {
         /// </summary>
         public void ToogleMenuItem(bool isShow) {
             LoginTSMI.Enabled = ExitTSMI.Enabled = isShow;
-            LogoutTSMI.Enabled = ManageTSM.Enabled = StatisticTSM.Enabled = AboutTSMI.Enabled = !isShow;
+            LogoutTSMI.Enabled = ManageTSM.Enabled = AboutTSMI.Enabled = !isShow;
+            // StatisticTSM.Enabled =
         }
         /// <summary>
         /// Sự kiện mở biểu mẫu đăng nhập hệ thống
@@ -107,6 +109,14 @@ namespace ManageDormitory.PresentationLayer {
         /// <param name="e"></param>
         private void ManageElecWaterBillTSMI_Click(object sender, EventArgs e) {
             new MainElectricityWaterBillForm().Show();
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AboutTSMI_Click(object sender, EventArgs e) {
+            new AboutForm().Show();
         }
     }
 }

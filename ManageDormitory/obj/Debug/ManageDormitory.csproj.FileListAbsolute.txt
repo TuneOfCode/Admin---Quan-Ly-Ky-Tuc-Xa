@@ -26,8 +26,15 @@ E:\learn\MangeDormitory\ManageDormitory\bin\Debug\EntityFramework.xml
 E:\learn\MangeDormitory\ManageDormitory\bin\Debug\EntityFramework.SqlServer.xml
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.AssemblyReference.cache
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.SuggestedBindingRedirects.cache
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.ResolveComReference.cache
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Auth.LoginForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddBoardingBillForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddElectricityWaterBillForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainBoardingBillForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainElectricityWaterBillForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Main.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.AddRoomForm.resources
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.MainRoomForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.Properties.Resources.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Student.AddStudentForm.resources
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Student.MainStudentForm.resources
@@ -36,10 +43,4 @@ E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.CoreCom
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.CopyComplete
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.exe
 E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.pdb
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddBoardingBillForm.resources
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.MainRoomForm.resources
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainBoardingBillForm.resources
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Room.AddRoomForm.resources
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.AddElectricityWaterBillForm.resources
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.Bill.MainElectricityWaterBillForm.resources
-E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.csproj.ResolveComReference.cache
+E:\learn\MangeDormitory\ManageDormitory\obj\Debug\ManageDormitory.PresentationLayer.About.AboutForm.resources

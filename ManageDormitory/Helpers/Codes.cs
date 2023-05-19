@@ -168,8 +168,8 @@ namespace ManageDormitory {
             try {
                 //Tạo đối tượng COM.
                 excel = new Microsoft.Office.Interop.Excel.Application();
-                //excel.Visible = false;
-                //excel.DisplayAlerts = false;
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
                 //tạo mới một Workbooks bằng phương thức add()
                 workbook = excel.Workbooks.Add(Type.Missing);
                 worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
@@ -194,11 +194,12 @@ namespace ManageDormitory {
                 // export nội dung trong DataGridView
                 for (int i = 0; i < dgv.RowCount; i++) {
                     for (int j = 0; j < dgv.ColumnCount; j++) {
-                        worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1] = dgv.Rows[i].Cells[j].Value;
                         worksheet.Rows.AutoFit();
                         worksheet.Columns.AutoFit();
                     }
                 }
+                worksheet.Columns[1].Delete();
                 // sử dụng phương thức SaveAs() để lưu workbook với filename
                 workbook.SaveAs(filePath);
                 //đóng workbook

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.SystemTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.LoginTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.LogoutTSMI = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,12 +39,7 @@
             this.BillTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageBoardingBillTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.ManageElecWaterBillTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticTSM = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticStudentTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticRoomTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.hoáĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticBoardingBillTSMI = new System.Windows.Forms.ToolStripMenuItem();
-            this.StatisticElecWaterTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMS = new System.Windows.Forms.MenuStrip();
             this.MainMS.SuspendLayout();
@@ -127,61 +123,23 @@
             this.ManageElecWaterBillTSMI.Text = "Điện nước";
             this.ManageElecWaterBillTSMI.Click += new System.EventHandler(this.ManageElecWaterBillTSMI_Click);
             // 
-            // StatisticTSM
-            // 
-            this.StatisticTSM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatisticStudentTSMI,
-            this.StatisticRoomTSMI,
-            this.hoáĐơnToolStripMenuItem});
-            this.StatisticTSM.Name = "StatisticTSM";
-            this.StatisticTSM.Size = new System.Drawing.Size(66, 20);
-            this.StatisticTSM.Text = "Xuất bản";
-            // 
-            // StatisticStudentTSMI
-            // 
-            this.StatisticStudentTSMI.Name = "StatisticStudentTSMI";
-            this.StatisticStudentTSMI.Size = new System.Drawing.Size(180, 22);
-            this.StatisticStudentTSMI.Text = "Sinh viên";
-            // 
-            // StatisticRoomTSMI
-            // 
-            this.StatisticRoomTSMI.Name = "StatisticRoomTSMI";
-            this.StatisticRoomTSMI.Size = new System.Drawing.Size(180, 22);
-            this.StatisticRoomTSMI.Text = "Phòng ở";
-            // 
             // hoáĐơnToolStripMenuItem
             // 
-            this.hoáĐơnToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatisticBoardingBillTSMI,
-            this.StatisticElecWaterTSMI});
             this.hoáĐơnToolStripMenuItem.Name = "hoáĐơnToolStripMenuItem";
-            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hoáĐơnToolStripMenuItem.Text = "Hoá đơn";
-            // 
-            // StatisticBoardingBillTSMI
-            // 
-            this.StatisticBoardingBillTSMI.Name = "StatisticBoardingBillTSMI";
-            this.StatisticBoardingBillTSMI.Size = new System.Drawing.Size(128, 22);
-            this.StatisticBoardingBillTSMI.Text = "Nội trú";
-            // 
-            // StatisticElecWaterTSMI
-            // 
-            this.StatisticElecWaterTSMI.Name = "StatisticElecWaterTSMI";
-            this.StatisticElecWaterTSMI.Size = new System.Drawing.Size(128, 22);
-            this.StatisticElecWaterTSMI.Text = "Điện nước";
+            this.hoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
             // AboutTSMI
             // 
             this.AboutTSMI.Name = "AboutTSMI";
             this.AboutTSMI.Size = new System.Drawing.Size(125, 20);
             this.AboutTSMI.Text = "Thông tin ứng dụng";
+            this.AboutTSMI.Click += new System.EventHandler(this.AboutTSMI_Click);
             // 
             // MainMS
             // 
             this.MainMS.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SystemTSMI,
             this.ManageTSM,
-            this.StatisticTSM,
             this.AboutTSMI});
             this.MainMS.Location = new System.Drawing.Point(0, 0);
             this.MainMS.Name = "MainMS";
@@ -193,6 +151,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.MainMS);
             this.MainMenuStrip = this.MainMS;
@@ -221,12 +181,12 @@
         private System.Windows.Forms.ToolStripMenuItem BillTSMI;
         private System.Windows.Forms.ToolStripMenuItem ManageBoardingBillTSMI;
         private System.Windows.Forms.ToolStripMenuItem ManageElecWaterBillTSMI;
-        private System.Windows.Forms.ToolStripMenuItem StatisticTSM;
-        private System.Windows.Forms.ToolStripMenuItem StatisticStudentTSMI;
-        private System.Windows.Forms.ToolStripMenuItem StatisticRoomTSMI;
+        //private System.Windows.Forms.ToolStripMenuItem StatisticTSM;
+        //private System.Windows.Forms.ToolStripMenuItem StatisticStudentTSMI;
+        //private System.Windows.Forms.ToolStripMenuItem StatisticRoomTSMI;
         private System.Windows.Forms.ToolStripMenuItem hoáĐơnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem StatisticBoardingBillTSMI;
-        private System.Windows.Forms.ToolStripMenuItem StatisticElecWaterTSMI;
+        //private System.Windows.Forms.ToolStripMenuItem StatisticBoardingBillTSMI;
+        //private System.Windows.Forms.ToolStripMenuItem StatisticElecWaterTSMI;
         private System.Windows.Forms.ToolStripMenuItem AboutTSMI;
         private System.Windows.Forms.MenuStrip MainMS;
     }

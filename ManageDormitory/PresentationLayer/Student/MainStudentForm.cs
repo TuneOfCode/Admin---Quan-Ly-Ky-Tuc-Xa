@@ -316,9 +316,7 @@ namespace ManageDormitory.PresentationLayer.Student {
         private void btnExportExcel_Click(object sender, EventArgs e) {
             string fileName = "Quản lý sinh viên";
             string workSheetName = "Quản lý sinh viên";
-            DataGridView studentDGV = StudentDGV;
-            studentDGV.Columns.RemoveAt(0);
-            Codes.ExportExcel(studentDGV, fileName, workSheetName);
+            Codes.ExportExcel(StudentDGV, fileName, workSheetName);
         }
     }
 }

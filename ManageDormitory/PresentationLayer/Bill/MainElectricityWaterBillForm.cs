@@ -267,9 +267,7 @@ namespace ManageDormitory.PresentationLayer.Bill {
         private void btnExportExcel_Click(object sender, EventArgs e) {
             string fileName = "Quản lý hoá đơn tiền điện";
             string workSheetName = "Quản lý hoá đơn tiền điện";
-            DataGridView billDGV = ElectricityWaterBillDGV;
-            billDGV.Columns.RemoveAt(0);
-            Codes.ExportExcel(billDGV, fileName, workSheetName);
+            Codes.ExportExcel(ElectricityWaterBillDGV, fileName, workSheetName);
         }
     }
 }

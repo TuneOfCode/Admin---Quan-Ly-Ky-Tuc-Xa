@@ -309,9 +309,7 @@ namespace ManageDormitory.PresentationLayer.Room {
         private void btnExportExcel_Click(object sender, EventArgs e) {
             string fileName = "Quản lý phòng ở";
             string workSheetName = "Quản lý phòng ở";
-            DataGridView roomDGV = RoomDGV;
-            roomDGV.Columns.RemoveAt(0);
-            Codes.ExportExcel(roomDGV, fileName, workSheetName);
+            Codes.ExportExcel(RoomDGV, fileName, workSheetName);
         }
     }
 }
